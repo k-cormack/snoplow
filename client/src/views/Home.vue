@@ -1,16 +1,16 @@
 <template>
   <div class="home">
-    <h3>Are you a customer or a trusted service provider</h3>
-    <button @click="customerLogin">Customer</button>
-    <button @click="providerLogin">Service Provider</button>
+    <h1>Are you a customer or a trusted service provider</h1>
+    <button @click="customerLogin" type="button" class="btn btn-primary btn-lg">Customer</button>
+    <button @click="providerLogin" type="button" class="btn btn-success btn-lg">Service Provider</button>
   </div>
 </template>
 
 <script>
 export default {
-  name:"",
+  name:"Home",
   methods:{
-    customerlogin(){
+    customerLogin(){
       this.$router.push({name: "customerLogin"})
     },
     providerLogin(){
@@ -21,5 +21,10 @@ export default {
 </script>
 
 <style>
+.btn-lg{
+  width: 25%;
+  height: 13vh;
+  font-size: 44px
+}
 
 </style>
