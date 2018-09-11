@@ -15,6 +15,7 @@ let schema = new Schema({
   customerId: { type: ObjectId, required: true },
   customerName: { type: String, required: true },
   location: [{ type: address, required: true }],
+  geoCoords: { type: String, required: true },
   customerEmail: { type: String, required: true },
   customerPhone: { type: Number, required: true },
   created: { type: Number, required: true, default: Date.now() },
