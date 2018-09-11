@@ -19,12 +19,75 @@ let api = Axios.create({
 
 export default new Vuex.Store({
   state: {
-
+    customer: {},
+    provider: {},
   },
   mutations: {
-
+    setCustomer(state, customer){
+      state.customer = customer
+    },
+    setProvider(state, provider){
+      state.provider = provider
+    },
   },
   actions: {
-
+    //customer
+    registerCustomer({ commit, dispatch }, newCustomer) {
+      auth.post('register', newCustomer)
+        .then(res => {
+          commit('setCustomer', res.data)
+          router.push({ name: '   ' })
+        })
+    },
+    authenticateCustomer({ commit, dispatch }) {
+      auth.get('authenticate')
+        .then(res => {
+          commit('setCustomer', res.data)
+          router.push({ name: '   ' })
+        })
+    },
+    loginCustomer({ commit, dispatch }, creds) {
+      auth.post('login', creds)
+        .then(res => {
+          commit('setCustomer', res.data)
+          router.push({ name: '' })
+        })
+    },
+    logoutCustomer({commit, dispatch}) {
+      auth.delete('logout')
+      .then(res => {
+        commit('setCustomer', {})
+        router.push({name: 'loginCustomer'})
+      })
+    },
+    //provider
+   registerProvider({ commit, dispatch }, newProvider) {
+    auth.post('register', newProvider)
+      .then(res => {
+        commit('setProvider', res.data)
+        router.push({ name: '    ' })
+      })
+  },
+  authenticateProvider({ commit, dispatch }) {
+    auth.get('authenticate')
+      .then(res => {
+        commit('setProvider', res.data)
+        router.push({ name: '    ' })
+      })
+  },
+  loginProvider({ commit, dispatch }, creds) {
+    auth.post('login', creds)
+      .then(res => {
+        commit('setProvider', res.data)
+        router.push({ name: '    ' })
+      })
+  },
+  logoutProvider({commit, dispatch}) {
+    auth.delete('logout')
+    .then(res => {
+      commit('setProvider', {})
+      router.push({name: 'loginProvider'})
+    })
+  },
   }
 })
