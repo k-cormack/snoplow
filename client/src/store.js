@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
 import router from './router'
+let mapApi = Axios({
+  baseURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCHCUdIbAD9ADYFkhdd80n4uTT1jBuKRd0&callback=initMap'
+})
 
 Vue.use(Vuex)
 
@@ -21,6 +24,7 @@ export default new Vuex.Store({
   state: {
     customer: {},
     provider: {},
+    map: {},
   },
   mutations: {
     setCustomer(state, customer){
@@ -29,8 +33,18 @@ export default new Vuex.Store({
     setProvider(state, provider){
       state.provider = provider
     },
+    setMap(state, map){
+      state.map = map
+    },
   },
   actions: {
+    getMap({commit, dispatch}){
+      mapApi.get(""
+        .then( res => {
+          commit('setMap', res.data.results)
+        })
+      )
+    },
     //customer
     registerCustomer({ commit, dispatch }, newCustomer) {
       auth.post('register', newCustomer)
