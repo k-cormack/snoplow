@@ -65,10 +65,6 @@ router.put('/:id', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
   Jobs.findById(req.params.id)
     .then(job => {
-      // @ts-ignore
-      if (!job.authorId.equals(req.session.uid)) {
-        return res.status(401).send("ACCESS DENIED!")
-      }
       Jobs.findByIdAndRemove(req.params.id)
         .then(data => {
           res.send('Job Successfully Deleted')
