@@ -12,7 +12,7 @@ next()
 })
 })
 router.post('/',(req, res, next)=>{
-    req.body.customerId = req.sesssion.uid
+    req.body.customerId = req.session.uid
     Customer.create(req.body)
     .then(newJob=>{
         res.send(newJob)

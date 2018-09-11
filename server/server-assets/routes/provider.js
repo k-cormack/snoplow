@@ -12,7 +12,7 @@ router.get('/',(req,res,next)=>{
     })
     })
     router.post('/',(req, res, next)=>{
-        req.body.providerId = req.sesssion.uid
+        req.body.providerId = req.session.uid
         Provider.create(req.body)
         .then(newReq=>{
             res.send(newReq)
