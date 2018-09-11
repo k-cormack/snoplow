@@ -11,6 +11,7 @@
       <input type="email" v-model="newCustomer.email" placeholder="email">
       <input type="password" v-model="newCustomer.password" placeholder="password">
       <button type="submit">Create Account</button>
+    </form>
     <div @click="customerLoginForm = !customerLoginForm">
       <p v-if="customerLoginForm">Not a member? Click here to register</p>
       <p v-else>Already a member? Click here to Login</p>
