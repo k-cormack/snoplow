@@ -2,9 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
 import router from './router'
-let mapApi = Axios({
-  baseURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCHCUdIbAD9ADYFkhdd80n4uTT1jBuKRd0&callback=initMap'
-})
 
 Vue.use(Vuex)
 
