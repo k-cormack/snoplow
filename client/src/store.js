@@ -35,13 +35,6 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    getMap({commit, dispatch}){
-      mapApi.get(""
-        .then( res => {
-          commit('setMap', res.data.results)
-        })
-      )
-    },
     //customer
     registerCustomer({ commit, dispatch }, newCustomer) {
       auth.post('register', newCustomer)
