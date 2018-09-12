@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     registerCustomer(){
-      this.$store.dispatch('registerCust', this.newCustomer);
+      this.$store.dispatch('registerCustomer', this.newCustomer);
     },
     loginCustomer(){
       this.$store.dispatch('login', this.creds)
