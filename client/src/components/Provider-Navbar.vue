@@ -1,6 +1,6 @@
 <template>
-        <div class="provider-navbar col-12">
-            <div class="row">
+        <div class="col-12">
+            <div class="provider-navbar row">
                 <button class="provider-account">Account</button>
                 <button class="find-job">Find Job</button>
                 <button class="logout" @click="logout">Log Out</button>

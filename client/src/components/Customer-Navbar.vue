@@ -1,6 +1,6 @@
 <template>
-    <div class="customer-navbar col-12">
-        <div class="row">
+    <div class="col-12">
+        <div class="customer-navbar row">
             <button class="customer-account">Account</button>
             <button class="post-job">Post Job</button>
             <button class="logout" @click="logout">Log Out</button>
