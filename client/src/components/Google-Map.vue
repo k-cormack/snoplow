@@ -1,7 +1,7 @@
 <script>
 export default {
-    name: 'googleMap',
-    props: ['name'],
+    name: 'map',
+    props: ['mapData'],
     data: function(){
         return {
             mapName: this.name + "-map",
