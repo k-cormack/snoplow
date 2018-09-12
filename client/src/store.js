@@ -40,28 +40,28 @@ export default new Vuex.Store({
       auth.post('register', newCustomer)
         .then(res => {
           commit('setCustomer', res.data)
-          router.push({ name: 'Customer' })
+          router.push({ name: 'customer' })
         })
     },
     authenticateCustomer({ commit, dispatch }) {
       auth.get('authenticate')
         .then(res => {
           commit('setCustomer', res.data)
-          router.push({ name: 'Customer' })
+          router.push({ name: 'customer' })
         })
     },
     loginCustomer({ commit, dispatch }, creds) {
       auth.post('login', creds)
         .then(res => {
           commit('setCustomer', res.data)
-          router.push({ name: 'Customer' })
+          router.push({ name: 'customer' })
         })
     },
     logoutCustomer({commit, dispatch}) {
       auth.delete('logout')
       .then(res => {
         commit('setCustomer', {})
-        router.push({name: 'loginCustomer'})
+        router.push({name: 'home'})
       })
     },
     //provider
@@ -69,28 +69,28 @@ export default new Vuex.Store({
     auth.post('register', newProvider)
       .then(res => {
         commit('setProvider', res.data)
-        router.push({ name: 'Provider' })
+        router.push({ name: 'provider' })
       })
   },
   authenticateProvider({ commit, dispatch }) {
     auth.get('authenticate')
       .then(res => {
         commit('setProvider', res.data)
-        router.push({ name: 'Provider' })
+        router.push({ name: 'provider' })
       })
   },
   loginProvider({ commit, dispatch }, creds) {
     auth.post('login', creds)
       .then(res => {
         commit('setProvider', res.data)
-        router.push({ name: 'Provider' })
+        router.push({ name: 'provider' })
       })
   },
   logoutProvider({commit, dispatch}) {
     auth.delete('logout')
     .then(res => {
       commit('setProvider', {})
-      router.push({name: 'loginProvider'})
+      router.push({name: 'home'})
     })
   },
   }

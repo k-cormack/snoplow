@@ -36,12 +36,12 @@ export default new Router({
     },
     {
     path: '/Customer',
-    name: 'Customer',
+    name: 'customer',
     component: Customer
     },
     {
     path: '/Provider',
-    name: 'Provider',
+    name: 'provider',
     component: Provider
     },
     {

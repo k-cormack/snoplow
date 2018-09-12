@@ -3,7 +3,7 @@
         <div class="row">
             <button class="customer-account">Account</button>
             <button class="post-job">Post Job</button>
-            <button class="logout">Log Out</button>
+            <button class="logout" @click="logout">Log Out</button>
         </div>
     </div>
 </template>
@@ -28,7 +28,11 @@
         },
 
         methods: {
+            logout() {
+            this.$store.dispatch('logoutCustomer')
+            this.$store.state.user._id = ""
 
+            }
         },
 
         props: [],
