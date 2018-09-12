@@ -39,15 +39,15 @@ export default {
   },
   methods: {
     registerCustomer(){
-      this.$store.dispatch()
+      this.$store.dispatch('registerCustomer', this.newCustomer);
     },
     loginCustomer(){
-      this.$store.dispatch()
+      this.$store.dispatch('login', this.creds)
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
 
 </style>
