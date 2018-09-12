@@ -3,7 +3,7 @@
     <form class="" v-if="customerLoginForm" @submit.prevent="loginCustomer">
       <input type="email" v-model="creds.email" placeholder="email">
       <input type="password" v-model="creds.password" placeholder="password">
-      <button type="submit">Login</button>
+      <button type="submit">LOGIN</button>
     </form>
     <form class="" v-else @submit.prevent="registerCustomer">
       <input type="name" v-model="newCustomer.name" placeholder="name">
@@ -13,7 +13,7 @@
       <button type="submit">Create Account</button>
     </form>
     <div @click="customerLoginForm = !customerLoginForm">
-      <p v-if="customerLoginForm">Not a member? Click here to register</p>
+      <p v-if="customerLoginForm">No Account Yet? Click <span>HERE</span> to register!</p>
       <p v-else>Already a member? Click here to Login</p>
     </div>
   </div>  
@@ -23,7 +23,7 @@
 export default {
   name: "customerLogin",
   data() {
-    return{
+    return {
       customerLoginForm: true,
       creds: {
         email: "",
@@ -49,5 +49,24 @@ export default {
 </script>
 
 <style scoped>
+  p {
+    font-size: 35px;
+    margin-top: 10px;
+  }
+  .customer-login {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  span {
+    color: blue;
+    cursor: pointer;
+  
+  }
+  button {
+    background-color: green
+  }
+  input, button {
+    border-radius: 10px
+  }
 
 </style>
