@@ -14,6 +14,7 @@
 
     import googleMaps from "@/components/Google-Map.vue"
     import Navbar from '@/components/Provider-Navbar'
+    
     export default {
         name: 'Provider',
         components: {
