@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <h1>Do you want to Plow or get Plowed</h1>
-    <button @click="customerLogin" type="button" class="btn btn-primary btn-lg">Get Plowed</button>
-    <button @click="providerLogin" type="button" class="btn btn-success btn-lg">Plow</button>
+    <h1>Looking for help or trying to help?</h1>
+    <button @click="customerLogin" type="button" class="btn btn-primary btn-lg">Customer</button>
+    <button @click="providerLogin" type="button" class="btn btn-success btn-lg">Provider</button>
   </div>
 </template>
 
