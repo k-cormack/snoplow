@@ -1,6 +1,6 @@
 <template>
-    <div class="google-map" :id="mapName">
-        <google-map name="proMap"></google-map>    
+    <div class="google-map" id="mapName">
+        <googleMaps />    
     </div>
     
 </template>
@@ -10,15 +10,13 @@
 import googleMaps from "@/components/Google-Map.vue" 
 
 export default {
-    
+    name: 'Provider',
+    components: {
+        googleMaps
+    }
     }
 </script>
 
 <style>
-.google-map {
-    width: 90vw;
-    height: 80vh;
-    margin: 0 auto;
-    background: gray;
-}
+
 </style>
