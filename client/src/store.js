@@ -65,15 +65,15 @@ export default new Vuex.Store({
       })
     },
     //provider
+    authenticateProvider({ commit, dispatch }) {
+      auth.get('authenticate')
+        .then(res => {
+          commit('setProvider', res.data)
+          router.push({ name: 'provider' })
+        })
+    },
    registerProvider({ commit, dispatch }, newProvider) {
     auth.post('register', newProvider)
-      .then(res => {
-        commit('setProvider', res.data)
-        router.push({ name: 'provider' })
-      })
-  },
-  authenticateProvider({ commit, dispatch }) {
-    auth.get('authenticate')
       .then(res => {
         commit('setProvider', res.data)
         router.push({ name: 'provider' })
