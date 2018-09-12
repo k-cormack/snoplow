@@ -42,7 +42,7 @@ export default {
       this.$store.dispatch('registerCustomer', this.newCustomer);
     },
     loginCustomer(){
-      this.$store.dispatch('login', this.creds)
+      this.$store.dispatch('loginCustomer', this.creds);
     }
   }
 };
