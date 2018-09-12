@@ -7,7 +7,7 @@
 
 <script>
 
-import googleMaps from "./components/Google-Maps.vue" 
+import googleMaps from "@/components/Google-Map.vue" 
 
 export default {
     
