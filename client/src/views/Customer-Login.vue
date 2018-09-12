@@ -1,8 +1,8 @@
 <template>
   <div class="customer-login">
     <form class="" v-if="customerLoginForm" @submit.prevent="loginCustomer">
-      <input type="email" v-model="creds.email" placeholder="email">
-      <input type="password" v-model="creds.password" placeholder="password">
+      <input type="email" v-model="creds.email" placeholder="  E-mail Address" required>
+      <input type="password" v-model="creds.password" placeholder="  Password" required>
       <button type="submit">LOGIN</button>
     </form>
     <form class="" v-else @submit.prevent="registerCustomer">
