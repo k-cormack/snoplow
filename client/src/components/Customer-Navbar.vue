@@ -1,8 +1,8 @@
 <template>
     <div class="col-12">
         <div class="customer-navbar row">
-            <button class="customer-account">Account</button>
-            <button class="post-job">Post Job</button>
+            <button class="customer-account" @click="custInfo">Account</button>
+            <button class="post-job" @click="postJob">Post Job</button>
             <button class="logout" @click="logout">Log Out</button>
         </div>
     </div>
@@ -31,7 +31,12 @@
             logout() {
             this.$store.dispatch('logoutCustomer')
             this.$store.state.user._id = ""
-
+            },
+            postJob() {
+                this.$router.push({name: 'customer'}) 
+            },
+            custInfo(){
+                this.$router.push({name: 'customerInfo'})
             }
         },
 

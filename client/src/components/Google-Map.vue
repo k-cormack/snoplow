@@ -10,7 +10,11 @@ export default {
   props: ["mapData"],
   data: function() {
     return {
-      mapName: this.name + "-map"
+      mapName: this.name + "-map",
+        markerCoordinates: [{
+            latitude: 43.615,
+            longitude: -116.2023,
+        }]
     };
   },
   mounted: function() {
@@ -20,15 +24,22 @@ export default {
       center: new google.maps.LatLng(43.615, -116.2023)
     };
     const map = new google.maps.Map(element, options);
+    this.markerCoordinates.forEach((coord) =>{
+        const postition = new google.maps.LatLng(coord.latitude, coord.longitude);
+        const marker = new google.maps.Marker({
+            postition,
+            map
+        })
+    })
   }
 };
 </script>
 
 <style scoped>
 #googleMap{
-    width: 90vw;
-    height: 80vh;
-    margin: 0 auto;
+    display: flex;
+    width: 70vw;
+    height: 90vh;
     background: gray;
 }
 </style>
