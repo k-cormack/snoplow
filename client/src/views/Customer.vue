@@ -1,6 +1,8 @@
 <template>
     <div class="customer">
-        <Navbar />
+        <div class="row">
+            <Navbar />
+        </div>
 
     </div>
 </template>
@@ -12,10 +14,10 @@
         name: "customer",
         data: function () {
             return {
-                
-                };
-            },
-        
+
+            };
+        },
+
 
 
 

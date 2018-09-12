@@ -1,13 +1,19 @@
 <template>
-    <div class="customer-navbar row">
-        <div class="col-4">
-            <button class="post-job">Post Job</button>
-        </div>
-        <div class="col-4">
+    <div class="customer-navbar col-12">
+        <div class="row">
             <button class="customer-account">Account</button>
-        </div>
-        <div class="col-4">
+            <button class="post-job">Post Job</button>
             <button class="logout">Log Out</button>
+            <!-- <div class="col-4">
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-center">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-end">
+                </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -44,5 +50,13 @@
 </script>
 
 <style scoped>
-
+    .customer-navbar {
+        background-color: moccasin;
+        padding-top: 15px;
+        padding-bottom: 15px
+    }
+    .row {
+        justify-content: space-around
+    }
+   
 </style>

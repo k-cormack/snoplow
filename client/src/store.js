@@ -54,7 +54,7 @@ export default new Vuex.Store({
       auth.post('login', creds)
         .then(res => {
           commit('setCustomer', res.data)
-          router.push({ name: 'customer' })
+          router.push({ name: 'Customer' })
         })
     },
     logoutCustomer({commit, dispatch}) {
