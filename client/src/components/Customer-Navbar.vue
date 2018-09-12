@@ -4,16 +4,6 @@
             <button class="customer-account">Account</button>
             <button class="post-job">Post Job</button>
             <button class="logout">Log Out</button>
-            <!-- <div class="col-4">
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-center">
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-end">
-                </div>
-            </div> -->
         </div>
     </div>
 </template>
@@ -55,8 +45,8 @@
         padding-top: 15px;
         padding-bottom: 15px
     }
+
     .row {
         justify-content: space-around
     }
-   
 </style>
