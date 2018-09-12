@@ -41,19 +41,15 @@ server.use((req, res, next) => {
 })
 
 //YOUR ROUTES HERE!!!!!!
-let boardRoutes = require('./server-assets/routes/board-route')
-server.use('/api/boards', boardRoutes)
 
-let listRoutes = require('./server-assets/routes/list-route')
-server.use('/api/lists', listRoutes)
+let customerRoutes = require('./server-assets/routes/customer')
+server.use('api/customer', customerRoutes)
 
-let taskRoutes = require('./server-assets/routes/task-route')
-server.use('/api/tasks', taskRoutes)
+let providerRoutes = require('./server-assets/routes/provider')
+server.use('api/provider', providerRoutes)
 
-
-
-
-
+let jobRoutes = require('./server-assets/routes/job-route')
+server.use('api/job', jobRoutes)
 
 //Catch all
 server.get('*', (req, res, next) => {
