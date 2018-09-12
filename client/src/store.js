@@ -40,14 +40,14 @@ export default new Vuex.Store({
       auth.post('register', newCustomer)
         .then(res => {
           commit('setCustomer', res.data)
-          router.push({ name: '' })
+          router.push({ name: 'Customer' })
         })
     },
     authenticateCustomer({ commit, dispatch }) {
       auth.get('authenticate')
         .then(res => {
           commit('setCustomer', res.data)
-          router.push({ name: '' })
+          router.push({ name: 'Customer' })
         })
     },
     loginCustomer({ commit, dispatch }, creds) {
@@ -69,21 +69,21 @@ export default new Vuex.Store({
     auth.post('register', newProvider)
       .then(res => {
         commit('setProvider', res.data)
-        router.push({ name: '' })
+        router.push({ name: 'Provider' })
       })
   },
   authenticateProvider({ commit, dispatch }) {
     auth.get('authenticate')
       .then(res => {
         commit('setProvider', res.data)
-        router.push({ name: '' })
+        router.push({ name: 'Provider' })
       })
   },
   loginProvider({ commit, dispatch }, creds) {
     auth.post('login', creds)
       .then(res => {
         commit('setProvider', res.data)
-        router.push({ name: '' })
+        router.push({ name: 'Provider' })
       })
   },
   logoutProvider({commit, dispatch}) {

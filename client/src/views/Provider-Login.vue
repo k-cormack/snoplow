@@ -43,7 +43,7 @@ export default {
       this.$store.dispatch('registerProvider', this.newProvider)
     },
     loginProvider(){
-      this.$store.dispatch('login', this.creds)
+      this.$store.dispatch('loginProvider', this.creds)
     }
   }
 };
