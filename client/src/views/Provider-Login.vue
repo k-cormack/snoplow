@@ -40,10 +40,10 @@ export default {
   },
   methods: {
     registerProvider(){
-      this.$store.dispatch()
+      this.$store.dispatch('registerProvider', this.newProvider)
     },
     loginProvider(){
-      this.$store.dispatch()
+      this.$store.dispatch('login', this.creds)
     }
   }
 };
