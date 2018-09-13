@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <header>
-      <div class="row justify-content-start">
+      <div class="row">
         <img src="../assets/Logo1.jpg" alt="" id="logo1">
         <img src="../assets/SnoPlow1.jpg" alt="" id="snoplow">
       </div>
