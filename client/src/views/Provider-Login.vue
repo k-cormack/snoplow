@@ -1,5 +1,5 @@
 <template>
-  <div class="provider-login">
+  <div class="provider-login container-fluid">
     <form class="" v-if="providerLoginForm" @submit.prevent="loginProvider">
       <input type="email" v-model="creds.email" placeholder=" E-mail Address">
       <input type="password" v-model="creds.password" placeholder=" Password">
@@ -7,9 +7,9 @@
     </form>
     <form class="" v-else @submit.prevent="registerProvider">
       <input type="name" v-model="newProvider.name" placeholder=" Name">
-      <input type="tel" v-model="newProvider.phone" placeholder=" Phone">
+      <input type="tel" minlength="10" v-model="newProvider.phone" placeholder=" Phone">
       <input type="email" v-model="newProvider.email" placeholder=" E-mail Address">
-      <input type="password" v-model="newProvider.password" placeholder=" Password">
+      <input type="password" minlength="6" v-model="newProvider.password" placeholder=" Password">
       <button type="submit">Create Account</button>
     </form>
     <div @click="providerLoginForm = !providerLoginForm">

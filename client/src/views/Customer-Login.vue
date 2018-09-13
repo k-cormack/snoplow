@@ -1,5 +1,5 @@
 <template>
-  <div class="customer-login">
+  <div class="customer-login container-fluid">
     <form class="" v-if="customerLoginForm" @submit.prevent="loginCustomer">
       <input type="email" v-model="creds.email" placeholder="  E-mail Address" required>
       <input type="password" v-model="creds.password" placeholder="  Password" required>
@@ -56,6 +56,7 @@ export default {
   .customer-login {
     margin-top: 20px;
     font-size: 20px;
+    text-shadow: 2px 2px black
   }
   span {
     color: blue;
