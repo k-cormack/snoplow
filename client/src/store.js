@@ -1,4 +1,4 @@
-import Vue from 'vue'
+    import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
 import router from './router'
@@ -93,5 +93,14 @@ export default new Vuex.Store({
       router.push({name: 'home'})
     })
   },
+  //add job
+  // addJob({commit,dispatch},obj){
+  //   console.log(obj)
+  //   api.post("job",obj)
+  //   .then(res =>{
+  //     console.log("job added")
+
+  //   })
+  // }
   }
 })

@@ -23,6 +23,8 @@ let schema = new Schema({
   phone: { type: Number, required: true },
   phone2: { type: Number },
   address: [ address ],
+  provider: {type: Boolean},
+  providerId: {type: objectId, ref: "Provider"},
   created: { type: Number, required: true, default: Date.now() }
 })
 

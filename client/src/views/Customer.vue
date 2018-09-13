@@ -3,8 +3,14 @@
         <div class="row">
             <Navbar />
         </div>
-        <div class="google-map" id="mapName">
+        <div class="row">
+
+        <div class="google-map col-8" id="mapName">
             <googleMaps />
+        </div>
+        <div class="col-4">
+
+        </div>
         </div>
     </div>
 </template>
