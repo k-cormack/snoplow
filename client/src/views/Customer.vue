@@ -3,7 +3,7 @@
         <div class="row">
             <Navbar />
         </div>
-        <div class="google-map" id="mapName">
+        <div class="google-map row" id="mapName">
             <googleMaps />
         </div>
     </div>
@@ -24,5 +24,8 @@ export default {
 </script>
 
 <style scoped>
+    .google-map {
+        justify-content: center;
+    }
 
 </style>

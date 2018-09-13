@@ -26,8 +26,6 @@
     color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    text-shadow: 2px 2px black;
-    
+    text-align: center;    
   }
 </style>

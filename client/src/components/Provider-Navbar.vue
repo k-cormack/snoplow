@@ -50,9 +50,10 @@
     
     <style scoped>
         .provider-navbar {
-            background-color: moccasin;
+            background-color:  rgba(20, 183, 238, 0.829);
             padding-top: 15px;
-            padding-bottom: 15px
+            padding-bottom: 15px;
+            border-radius: 10px                        
         }
     
         .row {
