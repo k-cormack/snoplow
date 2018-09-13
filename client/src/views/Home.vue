@@ -58,6 +58,9 @@
 </script>
 
 <style scoped>
+  header {
+    padding: 5px
+  }
   #logo1 {
     height: auto;
     width: auto;
@@ -80,8 +83,8 @@
   }
 
   #about-btn-row {
-    margin-top: 3vh;
-    margin-bottom: 45.5vh
+    margin-top: 1vh;
+    margin-bottom: 47vh
   }
 
   #about-button {
@@ -101,7 +104,8 @@
   }
 
   .row {
-    justify-content: center
+    justify-content: center;
+    text-shadow: 2px 2px black
   }
 
   #top {
