@@ -13,8 +13,13 @@
       <button type="submit">Create Account</button>
     </form>
     <div @click="customerLoginForm = !customerLoginForm">
+<<<<<<< HEAD
       <p v-if="customerLoginForm">No Account Yet? Click <span>HERE</span> to Register Now!</p>
       <p v-else>Already a Member? Click <span>HERE</span> to Login Now!</p>
+=======
+      <p v-if="customerLoginForm">No Account Yet? Click <span>HERE</span> to register!</p>
+      <p v-else>Already a Member? Click <span>HERE</span> to Login</p>
+>>>>>>> e257f1943f8dbc92eb5cb55ece01cbd86e71cec1
     </div>
   </div>  
 </template>
