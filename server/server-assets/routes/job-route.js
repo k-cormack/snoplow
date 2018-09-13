@@ -2,6 +2,12 @@ let router = require('express').Router()
 let Jobs = require('../models/job')
 
 
+router.post('*', (req, res, next)=>{
+  console.log('Hit Jobs Route')
+  next()
+})
+
+
 //GET
 router.get('/', (req, res, next) => {
   Jobs.find({ authorId: req.session.uid })

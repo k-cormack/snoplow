@@ -1,9 +1,10 @@
 <template>
         <div class="col-12">
-            <div class="provider-navbar row">
-                <button class="provider-account" @click="proInfo">Account</button>
-                <button class="find-job" @click="findJob">Find Job</button>
+            <div class="customer-navbar row">
+                <button class="customer-account" @click="custInfo">Account</button>
+                <button class="post-job" @click="postJob">Post Job</button>
                 <button class="logout" @click="logout">Log Out</button>
+                <!-- <router-link/> -->
             </div>
         </div>
     </template>
@@ -12,7 +13,7 @@
         import Home from '@/views/Home';
     
         export default {
-            name: "provider-navbar",
+            name: "customer-navbar",
             data: function () {
                 return {
     
@@ -29,15 +30,15 @@
     
             methods: {
                 logout() {
-                this.$store.dispatch('logoutProvider')
+                this.$store.dispatch('logoutCustomer')
                 this.$store.state.user._id = ""
                 },
-                findJob(){
-                    this.$router.push({name: 'provider'})
+                postJob() {
+                    this.$router.push({name: 'customer'}) 
                 },
-                proInfo(){
-                    this.$router.push({name: 'providerInfo'})
-                },
+                custInfo(){
+                    this.$router.push({name: 'customerInfo'})
+                }
             },
     
             props: [],
@@ -49,11 +50,10 @@
     </script>
     
     <style scoped>
-        .provider-navbar {
-            background-color:  rgba(20, 183, 238, 0.829);
+        .customer-navbar {
+            background-color: moccasin;
             padding-top: 15px;
-            padding-bottom: 15px;
-            border-radius: 10px                        
+            padding-bottom: 15px
         }
     
         .row {

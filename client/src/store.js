@@ -93,6 +93,7 @@ export default new Vuex.Store({
       router.push({name: 'home'})
     })
   },
+<<<<<<< HEAD
   //add job
   // addJob({commit,dispatch},obj){
   //   console.log(obj)
@@ -102,5 +103,8 @@ export default new Vuex.Store({
 
   //   })
   // }
+=======
+  //Jobs
+>>>>>>> 733e59e68f470656e551ccf3ed7036dfc102456d
   }
 })

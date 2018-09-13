@@ -12,6 +12,12 @@ next()
 })
 })
 router.post('/',(req, res, next)=>{
+    //VALIDATE PASSWORD LENGTH
+  if (req.body.password.length < 5) {
+    return res.status(400).send({
+      error: 'Password must be at least 6 characters'
+    })
+  }
     req.body.customerId = req.session.uid
     Customer.create(req.body)
     .then(newJob=>{

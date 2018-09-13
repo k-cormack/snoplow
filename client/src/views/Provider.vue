@@ -1,29 +1,37 @@
 <template>
-    <div class="provider">
-        <div>
+    <div class="provider container-fluid">
+        <div class="row">
             <Navbar />
         </div>
-        <div class="google-map" id="mapName">
-            <googleMaps />
+        <div class="row">
+            <div class="google-map col-xs-8" id="mapName">
+                <googleMaps />
+            </div>
+            <div class="side-jobs col-xs-4" v-for="job in jobs" :key="job._id">
+                <Job :jobData='job' />
+            </div>
         </div>
     </div>
-
 </template>
 
 <script>
 
     import googleMaps from "@/components/Google-Map.vue"
-    import Navbar from '@/components/Provider-Navbar'
-    
+    import Navbar from '@/components/Provider-Navbar.vue'
+    import Job from '@/components/Job.vue'
+
     export default {
         name: 'Provider',
         components: {
             googleMaps,
-            Navbar
+            Navbar,
+            Job
         }
     }
 </script>
 
 <style>
-
+    /* .google-map {
+        justify-content: center;
+    } */
 </style>

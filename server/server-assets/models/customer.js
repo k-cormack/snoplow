@@ -20,8 +20,8 @@ let schema = new Schema({
   //every email must be unique on the database
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  phone: { type: Number, required: true },
-  phone2: { type: Number },
+  phone: { type: String, required: true },
+  phone2: { type: String },
   address: [ address ],
   provider: {type: Boolean},
   providerId: {type: objectId, ref: "Provider"},
