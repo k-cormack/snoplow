@@ -43,13 +43,13 @@ server.use((req, res, next) => {
 //YOUR ROUTES HERE!!!!!!
 
 let customerRoutes = require('./server-assets/routes/customer')
-server.use('api/customer', customerRoutes)
+server.use('/api/customer', customerRoutes)
 
 let providerRoutes = require('./server-assets/routes/provider')
-server.use('api/provider', providerRoutes)
+server.use('/api/provider', providerRoutes)
 
 let jobRoutes = require('./server-assets/routes/job-route')
-server.use('api/job', jobRoutes)
+server.use('/api/job', jobRoutes)
 
 //Catch all
 server.get('*', (req, res, next) => {

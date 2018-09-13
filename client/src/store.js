@@ -93,5 +93,6 @@ export default new Vuex.Store({
       router.push({name: 'home'})
     })
   },
+  //Jobs
   }
 })

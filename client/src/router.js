@@ -14,6 +14,8 @@ import Provider from './views/Provider.vue'
 import customerInfo from './views/Customer-Info.vue'
 // @ts-ignore
 import providerInfo from './views/Provider-Info.vue'
+// @ts-ignore
+
 
 Vue.use(Router)
 
@@ -53,6 +55,7 @@ export default new Router({
     path: '/CInfo',
     name: 'customerInfo',
     component: customerInfo
-    }
+    },
+    
   ]
 })
