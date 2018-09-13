@@ -1,5 +1,5 @@
 <template>
-  <div class="flex" id="app">
+  <div class="flex container" id="app">
 
     <router-view />
 
@@ -28,6 +28,6 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     text-shadow: 2px 2px black;
-
+    
   }
 </style>
