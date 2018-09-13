@@ -95,7 +95,7 @@ export default new Vuex.Store({
   },
   //add job
 }
-
+  
 })
 
 
