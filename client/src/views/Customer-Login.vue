@@ -59,7 +59,7 @@ export default {
     text-shadow: 2px 2px black
   }
   span {
-    color: blue;
+    color: yellow;
     cursor: pointer;
   
   }
