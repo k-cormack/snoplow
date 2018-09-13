@@ -15,6 +15,12 @@ router.post('/auth/register', (req, res) => {
       error: 'Password must be at least 6 characters'
     })
   }
+  //VALIDATE PASSWORD LENGTH
+  if (req.body.phone.length < 10) {
+    return res.status(400).send({
+      error: 'Phone number must be at least 10 digits'
+    })
+  }
   //CHANGE THE PASSWORD TO A HASHED PASSWORD
   // @ts-ignore
   req.body.password = Users.generateHash(req.body.password)

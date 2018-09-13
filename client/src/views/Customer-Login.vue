@@ -6,10 +6,10 @@
       <button type="submit">LOGIN</button>
     </form>
     <form class="" v-else @submit.prevent="registerCustomer">
-      <input type="name" v-model="newCustomer.name" placeholder="name">
-      <input type="tel" v-model="newCustomer.phone" placeholder="phone">
-      <input type="email" v-model="newCustomer.email" placeholder="email">
-      <input type="password" v-model="newCustomer.password" placeholder="password">
+      <input type="name" v-model="newCustomer.name" placeholder=" Name">
+      <input type="tel" v-model="newCustomer.phone" placeholder=" Phone">
+      <input type="email" v-model="newCustomer.email" placeholder=" E-mail Address">
+      <input minlength="6" type="password" v-model="newCustomer.password" placeholder=" Password">
       <button type="submit">Create Account</button>
     </form>
     <div @click="customerLoginForm = !customerLoginForm">

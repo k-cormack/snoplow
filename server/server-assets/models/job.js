@@ -17,7 +17,7 @@ let schema = new Schema({
   location: [{ type: address, required: true }],
   geoCoords: { type: String, required: true },
   customerEmail: { type: String, required: true },
-  customerPhone: { type: Number, required: true },
+  customerPhone: { type: String, required: true },
   created: { type: Number, required: true, default: Date.now() },
   pending: { type: Boolean, default: false, required: true },
   completed: { type: Boolean, default: false, required: true},

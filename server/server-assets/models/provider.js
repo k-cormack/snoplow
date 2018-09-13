@@ -21,8 +21,8 @@ let schema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   businessName: { type: String},
-  businessPhone: { type: Number, required: true },
-  altPhone: { type: Number },
+  businessPhone: { type: String, required: true },
+  altPhone: { type: String },
   address: [address],
   created: { type: Number, required: true, default: Date.now() }
 })
