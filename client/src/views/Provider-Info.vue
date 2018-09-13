@@ -36,6 +36,7 @@
 <style scoped>
   .container {
     background-color: rgba(0, 68, 255, 0.555);
+    border-radius: 10px;
   }
 
 </style>
