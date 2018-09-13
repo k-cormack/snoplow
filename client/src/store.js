@@ -94,6 +94,7 @@ export default new Vuex.Store({
     })
   },
   //add job
+<<<<<<< HEAD
   // addJob({commit,dispatch},obj){
   //   console.log(obj)
   //   api.post("job",obj)
@@ -103,4 +104,12 @@ export default new Vuex.Store({
   //   })
   // }
   }
+=======
+}
+  
+>>>>>>> 9b83ef9ea3f14e1566490cf97dbd56c934a93259
 })
+
+
+
+

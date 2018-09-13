@@ -1,5 +1,5 @@
 <template>
-  <div class="flex container" id="app">
+  <div class="flex container-fluid" id="app">
 
     <router-view />
 

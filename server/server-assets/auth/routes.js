@@ -15,16 +15,22 @@ router.post('/auth/register', (req, res) => {
       error: 'Password must be at least 6 characters'
     })
   }
-  //VALIDATE PASSWORD LENGTH
-  if (req.body.phone.length < 10) {
-    return res.status(400).send({
-      error: 'Phone number must be at least 10 digits'
-    })
-  }
   //CHANGE THE PASSWORD TO A HASHED PASSWORD
   // @ts-ignore
   req.body.password = Users.generateHash(req.body.password)
   //CREATE THE USER
+
+  // if(req.body.provider){
+  //   Provider.create(req.body)
+  //     .then(res=>{
+  //       req.body.providerId = res._id
+
+          //Users.create
+  //     })
+  // }
+
+
+
   Users.create(req.body)
     .then(user => {
       //REMOVE THE PASSWORD BEFORE RETURNING
@@ -54,6 +60,16 @@ router.post('/auth/login', (req, res) => {
       //ALWAYS REMOVE THE PASSWORD FROM THE USER OBJECT
       delete user._doc.password
       req.session.uid = user._id
+
+      // if(user.provider){
+      //   Providers.findById(user.providerId)
+      //     .then(providerData=>{
+      //       res.send({userData: user, providerData})
+      //     })
+      // }
+
+
+
       res.send(user)
     }).catch(err => {
       res.status(400).send(loginError)
