@@ -26,6 +26,7 @@
 <script>
 
   import Navbar from '@/components/Customer-Navbar';
+  import Job from '@/components/Job'
 
   export default {
     name: "customerInfo",
