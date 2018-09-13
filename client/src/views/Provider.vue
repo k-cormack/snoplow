@@ -1,6 +1,6 @@
 <template>
     <div class="provider container-fluid">
-        <div class="row">
+        <!-- <div class="row">
             <Navbar />
         </div>
         <div class="row">
@@ -10,7 +10,7 @@
         <div class="side-jobs col-xs-4" v-for="job in jobs" :key="job._id">
             <Job :jobData='job' />
         </div>
-        </div>
+        </div> -->
     </div>
 
 </template>
@@ -26,7 +26,7 @@
         components: {
             googleMaps,
             Navbar,
-            Job
+            // Job
         }
     }
 </script>
