@@ -12,10 +12,9 @@ let address = new Schema({
   })
   
 let schema = new Schema({
-  customerId: { type: ObjectId, required: true },
+  customerId: { type: ObjectId,ref:"customer", required: true },
   customerName: { type: String, required: true },
-  location: [{ type: address, required: true }],
-  geoCoords: { type: String, required: true },
+  location: [{ type: address, required: true }],  
   customerEmail: { type: String, required: true },
   customerPhone: { type: String, required: true },
   created: { type: Number, required: true, default: Date.now() },
