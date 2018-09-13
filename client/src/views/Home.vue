@@ -16,6 +16,12 @@
     <div class="row">
       <button @click="providerLogin" type="button" class="btn btn-success btn-lg">Provider</button>
     </div>
+    <div class="row">
+      <div class="col-lg-12">
+
+      </div>
+
+    </div>
   </div>
 </template>
 
@@ -47,5 +53,8 @@
   }
   .col-12 {
     margin-top: 25vh
+  }
+  .col-lg-12 {
+    margin-block-end: 29% 
   }
 </style>
