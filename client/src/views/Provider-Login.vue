@@ -43,6 +43,7 @@
           phone: "",
           email: "",
           password: "",
+          provider: true
         }
       }
     },

@@ -37,7 +37,6 @@
       </div>
 
     </div>
-    
     <footer>
       <button type="button" class="btn btn-primary" id="footer-button" onClick="document.querySelector('header').scrollIntoView({behavior: 'smooth'});">Back to Top</button>
     </footer>
@@ -45,9 +44,6 @@
 </template>
 
 <script>
-
-import footNav from '@/components/Footer.vue'
-
   export default {
     name: "Home",
     methods: {
@@ -55,11 +51,9 @@ import footNav from '@/components/Footer.vue'
         this.$router.push({ name: "customerLogin" })
       },
       providerLogin() {
+        
         this.$router.push({ name: "providerLogin" })
       }
-    },
-    components: {
-      footNav
     }
   }
 </script>
@@ -105,7 +99,8 @@ import footNav from '@/components/Footer.vue'
     -moz-background-size: cover;
     -o-background-size: cover;
     min-height: 400px;
-    font-size: calc(16px + 2vw); 
+    /* font-size: 5vw; */
+    font-size: calc(16px + 2vw);
     text-shadow: 2px 2px black;
   }
 
@@ -119,6 +114,6 @@ import footNav from '@/components/Footer.vue'
   }
 
   .col-lg-12 {
-    margin-block-end: 16vh
+    margin-block-end: 29%
   }
 </style>
