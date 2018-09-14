@@ -52,7 +52,7 @@ export default new Vuex.Store({
           router.push({ name: 'provider' })
         })
     },
-    loginUser({ commit, dispatch }, creds) {
+    login({ commit, dispatch }, creds) {
       auth.post('login', creds)
         .then(res => {
           commit('setUser', res.data)

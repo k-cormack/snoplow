@@ -45,7 +45,6 @@
 
         computed: {
             isProvider() {
-                debugger
                 return this.$store.state.user.provider;
             }
         },
