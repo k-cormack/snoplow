@@ -21,12 +21,14 @@ let apiGeo = Axios.create({
   baseURL: "https://maps.googleapis.com/maps/api/geocode/json?address=",
   })
 
-let apiKey = '?key=AIzaSyCHCUdIbAD9ADYFkhdd80n4uTT1jBuKRd0'
+
+// Chace's API key for geocode DO NOT reuse
+let apiKey = '?key=AIzaSyBO2Ffcqzt0oT3Agz2_zuH3ZyELdwJAov0' 
 
 function geoFormatter(address){ 
   let output = ''
   let commaCount = 0
-  for(key in address){
+  for(let key in address){
     let value = address[key].split(' ').join('+')
     output += commaCount < 2 ? value + ",+" : value
     commaCount++
@@ -93,6 +95,8 @@ export default new Vuex.Store({
         router.push({name: 'home'})
       })
     },
+
+    // Map
   addMapData({commit}, mapData){
     commit('setMap', mapData)
   },
@@ -100,15 +104,6 @@ export default new Vuex.Store({
     let query = geoFormatter(payload)
     apiGeo.get(query + apiKey)
   }
-  //add job
-  // addJob({commit,dispatch},obj){
-  //   console.log(obj)
-  //   api.post("job",obj)
-  //   .then(res =>{
-  //     console.log("job added")
-
-  //   })
-  // }
   }
 })
 
