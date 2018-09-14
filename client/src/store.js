@@ -23,8 +23,8 @@ export default new Vuex.Store({
     map: {},
   },
   mutations: {
-    setUser(state, customer){
-      state.user = customer
+    setUser(state, user){
+      state.user = user
     },
     setMap(state, map){
       state.map = map

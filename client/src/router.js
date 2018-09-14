@@ -52,8 +52,8 @@ export default new Router({
     component: providerInfo
     },
     {
-    path: '/CInfo',
-    name: 'customerInfo',
+    path: '/userInfo',
+    name: 'userInfo',
     component: customerInfo
     },
     
