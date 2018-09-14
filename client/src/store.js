@@ -93,6 +93,10 @@ export default new Vuex.Store({
       router.push({name: 'home'})
     })
   },
+
+  addMapData({commit}, mapData){
+    commit('setMap', mapData)
+  }
   //add job
   // addJob({commit,dispatch},obj){
   //   console.log(obj)
