@@ -9,7 +9,7 @@
         <button type="submit">Login</button>
       </div>
     </form>
-    <form class="" v-else @submit.prevent="registerProvider">
+    <form class="" v-else @submit.prevent="register">
       <div>
         <input type="name" v-model="newProvider.name" placeholder=" Name">
         <input type="tel" minlength="10" v-model="newProvider.phone" placeholder=" Phone">
@@ -48,8 +48,8 @@
       }
     },
     methods: {
-      registerProvider() {
-        this.$store.dispatch('registerCustomer', this.newProvider)
+      register() {
+        this.$store.dispatch('register', this.newProvider)
       },
       login() {
         this.$store.dispatch('login', this.creds)

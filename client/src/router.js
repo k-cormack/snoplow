@@ -15,6 +15,7 @@ import userInfo from './views/User-Info.vue'
 // @ts-ignore
 import providerInfo from './views/Provider-Info.vue'
 // @ts-ignore
+import Login from './views/Login.vue'
 
 
 Vue.use(Router)
@@ -27,15 +28,20 @@ export default new Router({
       component: Home
     },
     {
-      path: '/CLogin',
-      name: 'customerLogin',
-      component: CLogin
+      path: '/login',
+      name: 'login',
+      component: Login
     },
-    {
-      path: '/PLogin',
-      name: 'providerLogin',
-      component: PLogin
-    },
+    // {
+    //   path: '/CLogin',
+    //   name: 'customerLogin',
+    //   component: CLogin
+    // },
+    // {
+    //   path: '/PLogin',
+    //   name: 'providerLogin',
+    //   component: PLogin
+    // },
     {
     path: '/Customer',
     name: 'customer',

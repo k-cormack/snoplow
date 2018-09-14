@@ -12,12 +12,12 @@
       </form>
     </div>
     <div class="" v-else>
-      <form @submit.prevent="registerCustomer">
+      <form @submit.prevent="register">
         <div>
-          <input type="name" v-model="newCustomer.name" placeholder=" Name">
-          <input type="tel" minlength="10" v-model="newCustomer.phone" placeholder=" Phone">
-          <input type="email" v-model="newCustomer.email" placeholder=" E-mail Address">
-          <input minlength="6" type="password" v-model="newCustomer.password" placeholder=" Password">
+          <input type="name" v-model="newUser.name" placeholder=" Name">
+          <input type="tel" minlength="10" v-model="newUser.phone" placeholder=" Phone">
+          <input type="email" v-model="newUser.email" placeholder=" E-mail Address">
+          <input minlength="6" type="password" v-model="newUser.password" placeholder=" Password">
         </div>
         <div>
           <button type="submit">Create Account</button>
@@ -41,7 +41,7 @@
           email: "",
           password: "",
         },
-        newCustomer: {
+        newUser: {
           name: "",
           phone: "",
           email: "",
@@ -50,8 +50,8 @@
       }
     },
     methods: {
-      registerCustomer() {
-        this.$store.dispatch('registerCustomer', this.newCustomer);
+      register() {
+        this.$store.dispatch('register', this.newCustomer);
       },
       login() {
         this.$store.dispatch('login', this.creds);
