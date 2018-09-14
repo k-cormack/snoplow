@@ -3,10 +3,6 @@ import Router from 'vue-router'
 // @ts-ignore
 import Home from './views/Home.vue'
 // @ts-ignore
-import CLogin from './views/Customer-Login.vue'
-// @ts-ignore
-import PLogin from './views/Provider-Login.vue'
-// @ts-ignore
 import Customer from './views/Customer.vue'
 // @ts-ignore
 import Provider from './views/Provider.vue'
