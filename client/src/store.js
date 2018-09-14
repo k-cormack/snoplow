@@ -52,7 +52,7 @@ export default new Vuex.Store({
           router.push({ name: 'provider' })
         })
     },
-    loginCustomer({ commit, dispatch }, creds) {
+    loginUser({ commit, dispatch }, creds) {
       auth.post('login', creds)
         .then(res => {
           commit('setUser', res.data)
@@ -62,21 +62,13 @@ export default new Vuex.Store({
           router.push({name: 'provider' })
         })
     },
-    logoutCustomer({commit, dispatch}) {
+    logout({commit, dispatch}) {
       auth.delete('logout')
       .then(res => {
         commit('setUser', {})
         router.push({name: 'home'})
       })
     },
-  logoutProvider({commit, dispatch}) {
-    auth.delete('logout')
-    .then(res => {
-      commit('setUser', {})
-      router.push({name: 'home'})
-    })
-  
-},
 
   addMapData({commit}, mapData){
     commit('setMap', mapData)

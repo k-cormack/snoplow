@@ -44,27 +44,27 @@
         },
 
         computed: {
-            isProvider(){
+            isProvider() {
                 debugger
-            return this.$store.state.user.provider;
+                return this.$store.state.user.provider;
             }
         },
-        
+
         mounted() {
-        
+
         },
 
         methods: {
             logout() {
-                this.$store.dispatch('logoutCustomer')
+                this.$store.dispatch('logout')
                 this.$store.state.user._id = ""
             },
             postJob() {
                 this.$router.push({ name: 'customer' })
             },
-            findJob(){
-                    this.$router.push({name: 'provider'})
-                },
+            findJob() {
+                this.$router.push({ name: 'provider' })
+            },
             userInfo() {
                 this.$router.push({ name: 'userInfo' })
             }
