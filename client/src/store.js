@@ -37,17 +37,13 @@ function geoFormatter(address){
 
 export default new Vuex.Store({
   state: {
-    customer: {},
-    provider: {},
+    user: {},
     map: {},
     jobLocation: {lat:0, lng:0}
   },
   mutations: {
-    setCustomer(state, customer){
-      state.customer = customer
-    },
-    setProvider(state, provider){
-      state.provider = provider
+    setUser(state, user){
+      state.user = user
     },
     setMap(state, map){
       state.map = map
@@ -63,61 +59,40 @@ export default new Vuex.Store({
     registerCustomer({ commit, dispatch }, newCustomer) {
       auth.post('register', newCustomer)
         .then(res => {
-          commit('setCustomer', res.data)
+          commit('setUser', res.data)
+          if (!res.data.provider)
           router.push({ name: 'customer' })
+          else
+          router.push({ name: 'provider' })
         })
     },
     authenticateCustomer({ commit, dispatch }) {
       auth.get('authenticate')
         .then(res => {
-          commit('setCustomer', res.data)
+          commit('setUser', res.data)
+          if (!res.data.provider)
           router.push({ name: 'customer' })
-        })
-    },
-    loginCustomer({ commit, dispatch }, creds) {
-      auth.post('login', creds)
-        .then(res => {
-          commit('setCustomer', res.data)
-          router.push({ name: 'customer' })
-        })
-    },
-    logoutCustomer({commit, dispatch}) {
-      auth.delete('logout')
-      .then(res => {
-        commit('setCustomer', {})
-        router.push({name: 'home'})
-      })
-    },
-    //provider
-    authenticateProvider({ commit, dispatch }) {
-      auth.get('authenticate')
-        .then(res => {
-          commit('setProvider', res.data)
+          else
           router.push({ name: 'provider' })
         })
     },
-   registerProvider({ commit, dispatch }, newProvider) {
-    auth.post('register', newProvider)
+    loginUser({ commit, dispatch }, creds) {
+      auth.post('login', creds)
+        .then(res => {
+          commit('setUser', res.data)
+          if (!res.data.provider)
+          router.push({ name: 'customer' })
+          else
+          router.push({name: 'provider' })
+        })
+    },
+    logout({commit, dispatch}) {
+      auth.delete('logout')
       .then(res => {
-        commit('setProvider', res.data)
-        router.push({ name: 'provider' })
+        commit('setUser', {})
+        router.push({name: 'home'})
       })
-  },
-  loginProvider({ commit, dispatch }, creds) {
-    auth.post('login', creds)
-      .then(res => {
-        commit('setProvider', res.data)
-        router.push({ name: 'provider' })
-      })
-  },
-  logoutProvider({commit, dispatch}) {
-    auth.delete('logout')
-    .then(res => {
-      commit('setProvider', {})
-      router.push({name: 'home'})
-    })
-  },
-//google map 
+    },
   addMapData({commit}, mapData){
     commit('setMap', mapData)
   },

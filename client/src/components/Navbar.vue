@@ -1,13 +1,19 @@
 <template>
     <div class="col-12">
-        <div class="customer-navbar row">
-            <button class="customer-account" @click="custInfo">Account</button>
+        <div class="customer-navbar row" v-if="!isProvider">
+            <button class="customer-account" @click="userInfo">Account</button>
             <button class="post-job" @click="postJob">Post Job</button>
             <button class="logout" @click="logout">Log Out</button>
+        </div>
+        <div v-else class="customer-navbar row">
+            <button class="customer-account" @click="userInfo">Account</button>
+            <button class="find-job" @click="findJob">Find Job</button>
+            <button class="logout" @click="logout">Log Out</button>
+        </div>
 
 
 
-            <!-- <Slide left width="240">
+        <!-- <Slide left width="240">
                 <a id="home" href="#">
                     <span>FAQ</span>
                 </a>
@@ -15,14 +21,13 @@
 
 
 
-            <!-- <div id="ddown1" class="m-md-2 btn-group b-dropdown dropdown">
+        <!-- <div id="ddown1" class="m-md-2 btn-group b-dropdown dropdown">
                 <button id="ddown1__BV_toggle_" aria-haspopup="true" aria-expanded="false" type="button" class="btn btn-secondary dropdown-toggle">DROPDOWN</button>
                 <div role="menu" aria-labelledby="ddown1__BV_toggle_" class="dropdown-menu" style>
                     <a role="menuitem" href="#" target="_self" class="dropdown-item">First Menu Item</a>
                 </div>
             </div> -->
 
-        </div>
     </div>
 </template>
 
@@ -31,7 +36,7 @@
     import { Slide } from 'vue-burger-menu';
 
     export default {
-        name: "customer-navbar",
+        name: "navbar",
         data: function () {
             return {
 
@@ -39,7 +44,10 @@
         },
 
         computed: {
-
+            isProvider() {
+                debugger
+                return this.$store.state.user.provider;
+            }
         },
 
         mounted() {
@@ -48,14 +56,17 @@
 
         methods: {
             logout() {
-                this.$store.dispatch('logoutCustomer')
+                this.$store.dispatch('logout')
                 this.$store.state.user._id = ""
             },
             postJob() {
                 this.$router.push({ name: 'customer' })
             },
-            custInfo() {
-                this.$router.push({ name: 'customerInfo' })
+            findJob() {
+                this.$router.push({ name: 'provider' })
+            },
+            userInfo() {
+                this.$router.push({ name: 'userInfo' })
             }
         },
 
