@@ -4,6 +4,17 @@
             <button class="customer-account" @click="custInfo">Account</button>
             <button class="post-job" @click="postJob">Post Job</button>
             <button class="logout" @click="logout">Log Out</button>
+
+
+
+            <!-- <Slide left width="240">
+                <a id="home" href="#">
+                    <span>FAQ</span>
+                </a>
+            </Slide> -->
+
+
+
             <!-- <div id="ddown1" class="m-md-2 btn-group b-dropdown dropdown">
                 <button id="ddown1__BV_toggle_" aria-haspopup="true" aria-expanded="false" type="button" class="btn btn-secondary dropdown-toggle">DROPDOWN</button>
                 <div role="menu" aria-labelledby="ddown1__BV_toggle_" class="dropdown-menu" style>
@@ -17,6 +28,7 @@
 
 <script>
     import Home from '@/views/Home';
+    import { Slide } from 'vue-burger-menu';
 
     export default {
         name: "customer-navbar",
@@ -51,6 +63,7 @@
 
         components: {
             Home,
+            Slide
         },
     }
 </script>
