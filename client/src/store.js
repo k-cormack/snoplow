@@ -1,4 +1,4 @@
-    import Vue from 'vue'
+import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
 import router from './router'
@@ -17,11 +17,30 @@ let api = Axios.create({
   withCredentials: true
 })
 
+let apiGeo = Axios.create({
+  baseURL: "https://maps.googleapis.com/maps/api/geocode/json?address=",
+  })
+
+let apiKey = '?key=AIzaSyCHCUdIbAD9ADYFkhdd80n4uTT1jBuKRd0'
+
+function geoFormatter(address){ 
+  let output = ''
+  let commaCount = 0
+  for(key in address){
+    let value = address[key].split(' ').join('+')
+    output += commaCount < 2 ? value + ",+" : value
+    commaCount++
+  }
+  return output
+}
+
+
 export default new Vuex.Store({
   state: {
     customer: {},
     provider: {},
     map: {},
+    jobLocation: {lat:0, lng:0}
   },
   mutations: {
     setCustomer(state, customer){
@@ -33,8 +52,13 @@ export default new Vuex.Store({
     setMap(state, map){
       state.map = map
     },
+    setJobLocation(state, payload){
+      state.jobLocation.lat=payload.latitude,
+      state.jobLocation.lng=payload.longitude
+    },
   },
   actions: {
+    
     //customer
     registerCustomer({ commit, dispatch }, newCustomer) {
       auth.post('register', newCustomer)
@@ -93,9 +117,13 @@ export default new Vuex.Store({
       router.push({name: 'home'})
     })
   },
-
+//google map 
   addMapData({commit}, mapData){
     commit('setMap', mapData)
+  },
+  createJobGeo({commit, dispatch}, payload){
+    let query = geoFormatter(payload)
+    apiGeo.get(query + apiKey)
   }
   //add job
   // addJob({commit,dispatch},obj){
