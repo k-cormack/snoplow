@@ -40,21 +40,30 @@ export default new Vuex.Store({
       auth.post('register', newCustomer)
         .then(res => {
           commit('setCustomer', res.data)
+          if (!res.data.provider)
           router.push({ name: 'customer' })
+          else
+          router.push({ name: 'provider' })
         })
     },
     authenticateCustomer({ commit, dispatch }) {
       auth.get('authenticate')
         .then(res => {
           commit('setCustomer', res.data)
+          if (!res.data.provider)
           router.push({ name: 'customer' })
+          else
+          router.push({ name: 'provider' })
         })
     },
     loginCustomer({ commit, dispatch }, creds) {
       auth.post('login', creds)
         .then(res => {
           commit('setCustomer', res.data)
+          if (!res.data.provider)
           router.push({ name: 'customer' })
+          else
+          router.push({name: 'provider' })
         })
     },
     logoutCustomer({commit, dispatch}) {
@@ -65,34 +74,35 @@ export default new Vuex.Store({
       })
     },
     //provider
-    authenticateProvider({ commit, dispatch }) {
-      auth.get('authenticate')
-        .then(res => {
-          commit('setProvider', res.data)
-          router.push({ name: 'provider' })
-        })
-    },
-   registerProvider({ commit, dispatch }, newProvider) {
-    auth.post('register', newProvider)
-      .then(res => {
-        commit('setProvider', res.data)
-        router.push({ name: 'provider' })
-      })
-  },
-  loginProvider({ commit, dispatch }, creds) {
-    auth.post('login', creds)
-      .then(res => {
-        commit('setProvider', res.data)
-        router.push({ name: 'provider' })
-      })
-  },
+  //   authenticateProvider({ commit, dispatch }) {
+  //     auth.get('authenticate')
+  //       .then(res => {
+  //         commit('setProvider', res.data)
+  //         router.push({ name: 'provider' })
+  //       })
+  //   },
+  //  registerProvider({ commit, dispatch }, newProvider) {
+  //   auth.post('register', newProvider)
+  //     .then(res => {
+  //       commit('setProvider', res.data)
+  //       router.push({ name: 'provider' })
+  //     })
+  // },
+  // loginProvider({ commit, dispatch }, creds) {
+  //   auth.post('login', creds)
+  //     .then(res => {
+  //       commit('setProvider', res.data)
+  //       router.push({ name: 'provider' })
+  //     })
+  // },
   logoutProvider({commit, dispatch}) {
     auth.delete('logout')
     .then(res => {
       commit('setProvider', {})
       router.push({name: 'home'})
     })
-  },
+  
+},
 
   addMapData({commit}, mapData){
     commit('setMap', mapData)

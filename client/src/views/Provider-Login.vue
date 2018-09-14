@@ -49,10 +49,10 @@
     },
     methods: {
       registerProvider() {
-        this.$store.dispatch('registerProvider', this.newProvider)
+        this.$store.dispatch('registerCustomer', this.newProvider)
       },
       loginProvider() {
-        this.$store.dispatch('loginProvider', this.creds)
+        this.$store.dispatch('loginCustomer', this.creds)
       }
     }
   };
