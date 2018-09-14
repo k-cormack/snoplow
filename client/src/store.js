@@ -54,11 +54,14 @@ export default new Vuex.Store({
       state.jobLocation.lat=payload.latitude,
       state.jobLocation.lng=payload.longitude
     },
+    isProvider(state){
+      state.user.provider = true
+    }
   },
   actions: {
     
     //customer
-    registerCustomer({ commit, dispatch }, newCustomer) {
+    register({ commit, dispatch }, newCustomer) {
       auth.post('register', newCustomer)
         .then(res => {
           commit('setUser', res.data)
@@ -68,7 +71,7 @@ export default new Vuex.Store({
           router.push({ name: 'provider' })
         })
     },
-    authenticateCustomer({ commit, dispatch }) {
+    authenticate({ commit, dispatch }) {
       auth.get('authenticate')
         .then(res => {
           commit('setUser', res.data)
@@ -103,6 +106,9 @@ export default new Vuex.Store({
   createJobGeo({commit, dispatch}, payload){
     let query = geoFormatter(payload)
     apiGeo.get(query + apiKey)
+  },
+  setUserisProvider({commit}){
+    commit('isProvider')
   }
   }
 })

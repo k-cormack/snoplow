@@ -48,11 +48,11 @@
     name: "Home",
     methods: {
       customerLogin() {
-        this.$router.push({ name: "customerLogin" })
+        this.$router.push({ name: "login" })
       },
       providerLogin() {
-        
-        this.$router.push({ name: "providerLogin" })
+        this.$store.dispatch('setUserisProvider'),        
+        this.$router.push({ name: "login" })
       }
     }
   }
