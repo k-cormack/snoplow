@@ -50,6 +50,7 @@ router.post('/auth/login', (req, res) => {
     email: req.body.email
   })
     .then(user => {
+      debugger
       console.log(user)
       if (!user) {
         return res.status(400).send(loginError)
