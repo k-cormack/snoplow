@@ -37,6 +37,7 @@
       </div>
 
     </div>
+    
     <footer>
       <button type="button" class="btn btn-primary" id="footer-button" onClick="document.querySelector('header').scrollIntoView({behavior: 'smooth'});">Back to Top</button>
     </footer>
@@ -44,6 +45,9 @@
 </template>
 
 <script>
+
+import footNav from '@/components/Footer.vue'
+
   export default {
     name: "Home",
     methods: {
@@ -53,6 +57,9 @@
       providerLogin() {
         this.$router.push({ name: "providerLogin" })
       }
+    },
+    components: {
+      footNav
     }
   }
 </script>

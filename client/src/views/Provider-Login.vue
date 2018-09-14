@@ -1,52 +1,60 @@
 <template>
   <div class="provider-login container-fluid">
     <form class="" v-if="providerLoginForm" @submit.prevent="loginProvider">
-      <input type="email" v-model="creds.email" placeholder=" E-mail Address">
-      <input type="password" v-model="creds.password" placeholder=" Password">
-      <button type="submit">Login</button>
+      <div>
+        <input type="email" v-model="creds.email" placeholder=" E-mail Address">
+        <input type="password" v-model="creds.password" placeholder=" Password">
+      </div>
+      <div>
+        <button type="submit">Login</button>
+      </div>
     </form>
     <form class="" v-else @submit.prevent="registerProvider">
-      <input type="name" v-model="newProvider.name" placeholder=" Name">
-      <input type="tel" minlength="10" v-model="newProvider.phone" placeholder=" Phone">
-      <input type="email" v-model="newProvider.email" placeholder=" E-mail Address">
-      <input type="password" minlength="6" v-model="newProvider.password" placeholder=" Password">
-      <button type="submit">Create Account</button>
+      <div>
+        <input type="name" v-model="newProvider.name" placeholder=" Name">
+        <input type="tel" minlength="10" v-model="newProvider.phone" placeholder=" Phone">
+        <input type="email" v-model="newProvider.email" placeholder=" E-mail Address">
+        <input type="password" minlength="6" v-model="newProvider.password" placeholder=" Password">
+      </div>
+      <div>
+        <button type="submit">Create Account</button>/
+      </div>
     </form>
     <div @click="providerLoginForm = !providerLoginForm">
       <p v-if="providerLoginForm">No Account Yet? Click <span>HERE</span> to Register Now!</p>
       <p v-else>Already a Member? Click <span>HERE</span> to Login Now!</p>
     </div>
-  </div>  
+  </div>
 </template>
 
 
 <script>
-export default {
+  export default {
     name: "providerLogin",
-  data() {
-    return{
-      providerLoginForm: true,
-      creds: {
-        email: "",
-        password: "",
+    data() {
+      return {
+        providerLoginForm: true,
+        creds: {
+          email: "",
+          password: "",
+        },
+        newProvider: {
+          name: "",
+          phone: "",
+          email: "",
+          password: "",
+        }
+      }
+    },
+    methods: {
+      registerProvider() {
+        this.$store.dispatch('registerProvider', this.newProvider)
       },
-      newProvider: {
-        name: "",
-        phone: "",
-        email: "",
-        password: "",
+      loginProvider() {
+        this.$store.dispatch('loginProvider', this.creds)
       }
     }
-  },
-  methods: {
-    registerProvider(){
-      this.$store.dispatch('registerProvider', this.newProvider)
-    },
-    loginProvider(){
-      this.$store.dispatch('loginProvider', this.creds)
-    }
-  }
-};
+  };
 
 </script>
 
@@ -55,21 +63,26 @@ export default {
     font-size: 35px;
     margin-top: 10px;
   }
+
   .provider-login {
     margin-top: 20px;
     font-size: 20px;
+    text-shadow: 2px 2px black
   }
+
   span {
-    color: blue;
+    color: yellow;
     cursor: pointer;
-  
+
   }
+
   button {
     background-color: green;
     color: white
   }
-  input, button {
+
+  input,
+  button {
     border-radius: 10px
   }
-
 </style>
