@@ -98,8 +98,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     min-height: 400px;
-    /* font-size: 5vw; */
-    font-size: calc(16px + 2vw);
+    font-size: calc(16px + 2vw); 
     text-shadow: 2px 2px black;
   }
 
@@ -113,6 +112,6 @@
   }
 
   .col-lg-12 {
-    margin-block-end: 29%
+    margin-block-end: 16vh
   }
 </style>
