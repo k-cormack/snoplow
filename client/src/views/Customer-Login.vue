@@ -1,7 +1,7 @@
 <template>
   <div class="customer-login container-fluid">
     <div class="" v-if="customerLoginForm">
-      <form @submit.prevent="loginCustomer">
+      <form @submit.prevent="login">
         <div>
           <input type="email" v-model="creds.email" placeholder="  E-mail Address" required>
           <input type="password" v-model="creds.password" placeholder="  Password" required>
@@ -53,8 +53,8 @@
       registerCustomer() {
         this.$store.dispatch('registerCustomer', this.newCustomer);
       },
-      loginCustomer() {
-        this.$store.dispatch('loginCustomer', this.creds);
+      login() {
+        this.$store.dispatch('login', this.creds);
       }
     }
   };

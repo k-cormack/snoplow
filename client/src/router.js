@@ -11,7 +11,7 @@ import Customer from './views/Customer.vue'
 // @ts-ignore
 import Provider from './views/Provider.vue'
 // @ts-ignore
-import customerInfo from './views/Customer-Info.vue'
+import userInfo from './views/User-Info.vue'
 // @ts-ignore
 import providerInfo from './views/Provider-Info.vue'
 // @ts-ignore
@@ -52,9 +52,9 @@ export default new Router({
     component: providerInfo
     },
     {
-    path: '/CInfo',
-    name: 'customerInfo',
-    component: customerInfo
+    path: '/userInfo',
+    name: 'userInfo',
+    component: userInfo
     },
     
   ]

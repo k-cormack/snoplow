@@ -1,6 +1,6 @@
 <template>
   <div class="provider-login container-fluid">
-    <form class="" v-if="providerLoginForm" @submit.prevent="loginProvider">
+    <form class="" v-if="providerLoginForm" @submit.prevent="login">
       <div>
         <input type="email" v-model="creds.email" placeholder=" E-mail Address">
         <input type="password" v-model="creds.password" placeholder=" Password">
@@ -51,8 +51,8 @@
       registerProvider() {
         this.$store.dispatch('registerCustomer', this.newProvider)
       },
-      loginProvider() {
-        this.$store.dispatch('loginCustomer', this.creds)
+      login() {
+        this.$store.dispatch('login', this.creds)
       }
     }
   };
