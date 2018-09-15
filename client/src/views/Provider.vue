@@ -17,11 +17,11 @@
 <script>
 
     import googleMaps from "@/components/Google-Map.vue"
-    import Navbar from '@/components/Provider-Navbar.vue'
+    import Navbar from '@/components/Navbar.vue'
     import Job from '@/components/Job.vue'
 
     export default {
-        name: 'Provider',
+        name: 'provider',
         components: {
             googleMaps,
             Navbar,
@@ -31,7 +31,5 @@
 </script>
 
 <style>
-    /* .google-map {
-        justify-content: center;
-    } */
+    
 </style>

@@ -25,7 +25,7 @@
 
 <script>
 
-  import Navbar from '@/components/Provider-Navbar';
+  import Navbar from '@/components/Navbar';
 
   export default {
     name: "providerInfo",

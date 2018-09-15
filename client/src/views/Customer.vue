@@ -18,7 +18,7 @@
 <script>
 
     import googleMaps from "@/components/Google-Map.vue"
-    import Navbar from '@/components/Customer-Navbar';
+    import Navbar from '@/components/Navbar.vue';
     import Job from '@/components/Job.vue'
     export default {
         name: "customer",

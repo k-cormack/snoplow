@@ -25,11 +25,11 @@
 
 <script>
 
-  import Navbar from '@/components/Customer-Navbar';
+  import Navbar from '@/components/Navbar';
   import Job from '@/components/Job'
 
   export default {
-    name: "customerInfo",
+    name: "userInfo",
     components: {
       Navbar,
       Job
