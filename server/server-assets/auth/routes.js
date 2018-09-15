@@ -63,6 +63,14 @@ router.post('/auth/login', (req, res) => {
       delete user._doc.password
       req.session.uid = user._id
 
+      // if(user.provider){
+       
+      //   Providers.findById(user.providerId)
+      //     .then(providerData=>{
+      //       res.send({userData: user, providerData})
+      //     })
+      // }
+
 
 
       res.send(user)
