@@ -14,9 +14,9 @@ let schema = new Schema({
   
   
   businessName: { type: String},
-  businessPhone: { type: Number, required: true },
+  businessPhone: { type: Number},
   altPhone: { type: Number },
-  created: { type: Number, required: true, default: Date.now() }
+  created: { type: Number,  default: Date.now() }
 })
 
 

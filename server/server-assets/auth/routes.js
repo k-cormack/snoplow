@@ -46,11 +46,12 @@ router.post('/auth/register', (req, res) => {
 
 router.post('/auth/login', (req, res) => {
   //FIND A USER BASED ON PROVIDED EMAIL
+
   Users.findOne({
     email: req.body.email
   })
     .then(user => {
-      console.log(user)
+  
       if (!user) {
         return res.status(400).send(loginError)
       }
@@ -61,13 +62,6 @@ router.post('/auth/login', (req, res) => {
       //ALWAYS REMOVE THE PASSWORD FROM THE USER OBJECT
       delete user._doc.password
       req.session.uid = user._id
-
-      // if(user.provider){
-      //   Providers.findById(user.providerId)
-      //     .then(providerData=>{
-      //       res.send({userData: user, providerData})
-      //     })
-      // }
 
 
 

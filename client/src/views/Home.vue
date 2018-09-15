@@ -1,4 +1,4 @@
-<template>
+   <template>
   <div class="home">
     <header>
       <div class="row">
