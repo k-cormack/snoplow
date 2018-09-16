@@ -1,15 +1,14 @@
 <template>
 <div class="createJob">
-    <div class="row">
-        <div class=col-4>
                 <form @submit.prevent="addJob">
-      <input type="text" placeholder="title" v-model="newJob.adress" required>
-      <!-- <input type="text" placeholder="description" v-model="newList.description"> -->
+      <input type="text" placeholder="Street Adress" v-model="newJob.street" required>
+      <input type="text" placeholder="Street Adress 2" v-model="newJob.street2">
+      <input type="text" placeholder="City" v-model="newJob.city">
+      <input type="text" placeholder="Zip" v-model="newJob.zip">
       <button type="submit">Create Job</button>
     </form>
-        </div>
-
-    </div>  
+        
+ 
 
 
 
@@ -18,17 +17,32 @@
 </template>
 <script>
 export default {
-     data() {
-      return {
-        newJob: {
-          title: "",
-          description: "",
-          
-        }
-      };
-    },
-}
+  data() {
+    return {
+      newJob: {
+        
+          street: "",
+          street2: "",
+          city: "",
+          zip: "",
+        
+        complete: false
+      }
+    };
+  },
+  computed:{
+    user
+  },
+  methods: {
+    addJob(){
+    
+
+    }
+  }
+};
 </script>
 <style>
-
+.col-4 {
+  padding-left: 5rem;
+}
 </style>
