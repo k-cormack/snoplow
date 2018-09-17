@@ -23,7 +23,7 @@ let apiGeo = Axios.create({
 
 
 // Chace's API key for geocode DO NOT reuse
-let apiKey = '?key=AIzaSyBO2Ffcqzt0oT3Agz2_zuH3ZyELdwJAov0'
+let apiKey = '&key=AIzaSyBO2Ffcqzt0oT3Agz2_zuH3ZyELdwJAov0'
 
 function geoFormatter(address) {
   let output = ''
@@ -52,8 +52,8 @@ export default new Vuex.Store({
     },
     setJobLocation(state, payload) {
       console.log(payload)
-      state.jobLocation.lat = payload.latitude,
-        state.jobLocation.lng = payload.longitude
+      state.jobLocation.lat = payload.geometry.lat,
+        state.jobLocation.lng = payload.geometry.lng
     },
     isProvider(state) {
       state.user.provider = true
@@ -105,6 +105,7 @@ export default new Vuex.Store({
       commit('setMap', mapData)
     },
     createJobGeo({ commit, dispatch }, payload) {
+      
       apiGeo.get(payload.address + apiKey)
         .then(res => {
           commit("setJobLocation", res.data)
