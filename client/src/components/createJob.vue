@@ -39,7 +39,7 @@ computed:{
     city:this.newJob.city,
     state:this.newJob.state,
     }
-    this.$store.dispatch('addJob',obj)
+    this.$store.dispatch('createJobGeo',obj)
         }
 
 
