@@ -1,10 +1,10 @@
 <template>
 <div class="createJob">
     <form @submit.prevent="addJob">
-      <input type="text" placeholder="Street Address, City, State" v-model="newJob.address" required>
-      <!-- <input type="text" placeholder="City" v-model="newJob.city">
+      <input type="text" placeholder="Street Address," v-model="newJob.address" required>
+      <input type="text" placeholder="City" v-model="newJob.city">
       <input type="text" placeholder="State" v-model="newJob.state">
-      <input type="text" placeholder="Zip" v-model="newJob.zip"> -->
+      <!-- <input type="text" placeholder="Zip" v-model="newJob.zip"> -->
       <button type="submit">Create Job</button>
     </form>
         
@@ -17,15 +17,29 @@ export default {
     return {
       newJob: {
         address: "",
+        city:"",
+        state:"",
         complete: false
       }
     };
   },
-  computed: {},
+  computed: {
+      user(){
+          return this.$store.state.user;
+      }
+  },
   methods: {
+
     addJob() {
       let obj = {
-        address: this.newJob.address
+        address: this.newJob.address,
+        city: this.newJob.city,
+        state: this.newJob.state,
+        // name: this.user.name,
+        // email: this.user.email,
+        // phone: this.user.phone,
+
+
       };
       this.$store.dispatch("createJobGeo", obj);
     }

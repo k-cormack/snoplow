@@ -29,7 +29,8 @@ export default new Vuex.Store({
   state: {
     user: {},
     map: {},
-    jobLocation: { lat: 0, lng: 0 }
+    jobLocation: { lat: 0, lng: 0 },
+    job:{}
   },
   mutations: {
     setUser(state, user) {
@@ -46,6 +47,10 @@ export default new Vuex.Store({
     },
     isProvider(state) {
       state.user.provider = true
+    },
+    setJob(state,job){
+      state.job = job
+
     }
   },
   actions: {
@@ -95,11 +100,14 @@ export default new Vuex.Store({
     },
     createJobGeo({ commit, dispatch }, payload) {
       
-      apiGeo.get(payload.address + apiKey)
+      apiGeo.get(payload.address + payload.city + payload.state + apiKey)
         .then(res => {
           commit("setJobLocation", res.data)
         })
     },
+    // setJobs({commit ,dispatch},obj){
+    //   api.post(obj.)
+    // },
     setUserisProvider({ commit }) {
       commit('isProvider')
     }
