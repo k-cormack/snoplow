@@ -25,18 +25,6 @@ let apiGeo = Axios.create({
 // Chace's API key for geocode DO NOT reuse
 let apiKey = '&key=AIzaSyBO2Ffcqzt0oT3Agz2_zuH3ZyELdwJAov0'
 
-function geoFormatter(address) {
-  let output = ''
-  let commaCount = 0
-  for (let key in address) {
-    let value = address[key].split(' ').join('+')
-    output += commaCount < 2 ? value + ",+" : value
-    commaCount++
-  }
-  return output
-}
-
-
 export default new Vuex.Store({
   state: {
     user: {},
@@ -52,8 +40,9 @@ export default new Vuex.Store({
     },
     setJobLocation(state, payload) {
       console.log(payload)
-      state.jobLocation.lat = payload.geometry.lat,
-        state.jobLocation.lng = payload.geometry.lng
+      state.jobLocation.lat = payload.results[0].geometry.location.lat,
+      state.jobLocation.lng = payload.results[0].geometry.location.lng,
+      console.log(payload.results[0].geometry.location.lat, payload.results[0].geometry.location.lng)
     },
     isProvider(state) {
       state.user.provider = true
