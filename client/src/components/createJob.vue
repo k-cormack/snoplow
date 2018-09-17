@@ -1,41 +1,33 @@
 <template>
 <div class="createJob">
-                <form @submit.prevent="addJob">
-      <input type="text" placeholder="Street Adress" v-model="newJob.street" required>
-      <input type="text" placeholder="Street Adress 2" v-model="newJob.street2">
-      <input type="text" placeholder="City" v-model="newJob.city">
-      <input type="text" placeholder="Zip" v-model="newJob.zip">
+    <form @submit.prevent="addJob">
+      <input type="text" placeholder="Street Address, City, State" v-model="newJob.address" required>
+      <!-- <input type="text" placeholder="City" v-model="newJob.city">
+      <input type="text" placeholder="State" v-model="newJob.state">
+      <input type="text" placeholder="Zip" v-model="newJob.zip"> -->
       <button type="submit">Create Job</button>
     </form>
         
  
-
-
-
-
 </div>
 </template>
 <script>
-
 export default {
   data() {
     return {
       newJob: {
-        
-          street: "",
-          street2: "",
-          city: "",
-          zip: "",
-        
+        address: "",
         complete: false
       }
     };
   },
-
+  computed: {},
   methods: {
-    addJob(){
-    
-
+    addJob() {
+      let obj = {
+        address: this.newJob.address
+      };
+      this.$store.dispatch("createJobGeo", obj);
     }
   }
 };

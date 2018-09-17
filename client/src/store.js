@@ -19,16 +19,16 @@ let api = Axios.create({
 
 let apiGeo = Axios.create({
   baseURL: "https://maps.googleapis.com/maps/api/geocode/json?address=",
-  })
+})
 
 
 // Chace's API key for geocode DO NOT reuse
-let apiKey = '?key=AIzaSyBO2Ffcqzt0oT3Agz2_zuH3ZyELdwJAov0' 
+let apiKey = '?key=AIzaSyBO2Ffcqzt0oT3Agz2_zuH3ZyELdwJAov0'
 
-function geoFormatter(address){ 
+function geoFormatter(address) {
   let output = ''
   let commaCount = 0
-  for(let key in address){
+  for (let key in address) {
     let value = address[key].split(' ').join('+')
     output += commaCount < 2 ? value + ",+" : value
     commaCount++
@@ -41,34 +41,35 @@ export default new Vuex.Store({
   state: {
     user: {},
     map: {},
-    jobLocation: {lat:0, lng:0}
+    jobLocation: { lat: 0, lng: 0 }
   },
   mutations: {
-    setUser(state, user){
+    setUser(state, user) {
       state.user = user
     },
-    setMap(state, map){
+    setMap(state, map) {
       state.map = map
     },
-    setJobLocation(state, payload){
-      state.jobLocation.lat=payload.latitude,
-      state.jobLocation.lng=payload.longitude
+    setJobLocation(state, payload) {
+      console.log(payload)
+      state.jobLocation.lat = payload.latitude,
+        state.jobLocation.lng = payload.longitude
     },
-    isProvider(state){
+    isProvider(state) {
       state.user.provider = true
     }
   },
   actions: {
-    
+
     //customer
     register({ commit, dispatch }, newCustomer) {
       auth.post('register', newCustomer)
         .then(res => {
           commit('setUser', res.data)
           if (!res.data.provider)
-          router.push({ name: 'customer' })
+            router.push({ name: 'customer' })
           else
-          router.push({ name: 'provider' })
+            router.push({ name: 'provider' })
         })
     },
     authenticate({ commit, dispatch }) {
@@ -76,9 +77,9 @@ export default new Vuex.Store({
         .then(res => {
           commit('setUser', res.data)
           if (!res.data.provider)
-          router.push({ name: 'customer' })
+            router.push({ name: 'customer' })
           else
-          router.push({ name: 'provider' })
+            router.push({ name: 'provider' })
         })
     },
     login({ commit, dispatch }, creds) {
@@ -86,30 +87,32 @@ export default new Vuex.Store({
         .then(res => {
           commit('setUser', res.data)
           if (!res.data.provider)
-          router.push({ name: 'customer' })
+            router.push({ name: 'customer' })
           else
-          router.push({name: 'provider' })
+            router.push({ name: 'provider' })
         })
     },
-    logout({commit, dispatch}) {
+    logout({ commit, dispatch }) {
       auth.delete('logout')
-      .then(res => {
-        commit('setUser', {})
-        router.push({name: 'home'})
-      })
+        .then(res => {
+          commit('setUser', {})
+          router.push({ name: 'home' })
+        })
     },
 
     // Map
-  addMapData({commit}, mapData){
-    commit('setMap', mapData)
-  },
-  createJobGeo({commit, dispatch}, payload){
-    let query = geoFormatter(payload)
-    apiGeo.get(query + apiKey)
-  },
-  setUserisProvider({commit}){
-    commit('isProvider')
-  }
+    addMapData({ commit }, mapData) {
+      commit('setMap', mapData)
+    },
+    createJobGeo({ commit, dispatch }, payload) {
+      apiGeo.get(payload.address + apiKey)
+        .then(res => {
+          commit("setJobLocation", res.data)
+        })
+    },
+    setUserisProvider({ commit }) {
+      commit('isProvider')
+    }
   }
 })
 
