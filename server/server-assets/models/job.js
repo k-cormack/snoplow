@@ -5,7 +5,7 @@ let ObjectId = Schema.Types.ObjectId
 
 let address = new Schema({
     street: { type: String, required: true },
-    street2: { type: String },
+    state: { type: String, required: true },
     city: { type: String, required: true },
     zipCode: {type: Number, required: true },
   
