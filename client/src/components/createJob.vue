@@ -27,12 +27,22 @@ export default {
       }
     };
   },
+computed:{
 
+},
   methods: {
     addJob(){
-    
 
+        
+    let obj =    {
+      street:this.newJob.street,
+    city:this.newJob.city,
+    state:this.newJob.state,
     }
+    this.$store.dispatch('addJob',obj)
+        }
+
+
   }
 };
 </script>
@@ -41,3 +51,5 @@ export default {
   padding-left: 5rem;
 }
 </style>
+
+    // this.newJob.zip
