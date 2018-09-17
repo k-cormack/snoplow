@@ -51,6 +51,7 @@ export default new Vuex.Store({
       state.map = map
     },
     setJobLocation(state, payload){
+      console.log(payload)
       state.jobLocation.lat=payload.latitude,
       state.jobLocation.lng=payload.longitude
     },
@@ -104,8 +105,10 @@ export default new Vuex.Store({
     commit('setMap', mapData)
   },
   createJobGeo({commit, dispatch}, payload){
-    let query = geoFormatter(payload)
-    apiGeo.get(query + apiKey)
+    apiGeo.get(payload.street+ apiKey)
+    .then(res=>{
+      commit("setJobLocation",res.data)
+    })
   },
   setUserisProvider({commit}){
     commit('isProvider')
