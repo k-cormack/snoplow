@@ -3,18 +3,14 @@ let Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
 // let schemaName = 'Job'
 
-let address = new Schema({
-    street: { type: String, required: true },
-    state: { type: String, required: true },
-    city: { type: String, required: true },
-    zipCode: {type: Number, required: true },
-  
-  })
+
   
 let schema = new Schema({
   customerId: { type: ObjectId,ref:"customer", required: true },
   customerName: { type: String, required: true },
-  location: [{ type: address, required: true }],  
+  street: { type: String, required: true },
+  state: { type: String, required: true },
+  city: { type: String, required: true },
   customerEmail: { type: String, required: true },
   customerPhone: { type: String, required: true },
   created: { type: Number, required: true, default: Date.now() },

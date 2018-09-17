@@ -1,7 +1,7 @@
 <template>
 <div class="createJob">
     <form @submit.prevent="addJob">
-      <input type="text" placeholder="Street Address," v-model="newJob.address" required>
+      <input type="text" placeholder="Street Address," v-model="newJob.street" required>
       <input type="text" placeholder="City" v-model="newJob.city">
       <input type="text" placeholder="State" v-model="newJob.state">
       <!-- <input type="text" placeholder="Zip" v-model="newJob.zip"> -->
@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       newJob: {
-        address: "",
+        street: "",
         city:"",
         state:"",
         complete: false
@@ -32,16 +32,19 @@ export default {
 
     addJob() {
       let obj = {
-        address: this.newJob.address,
-        city: this.newJob.city,
+          customerName: this.user.name,
+          customerId: this.user._id,
+        street: this.newJob.street,
         state: this.newJob.state,
-        // name: this.user.name,
-        // email: this.user.email,
-        // phone: this.user.phone,
-
+        city: this.newJob.city,
+        customerEmail: this.user.email,
+        customerPhone: this.user.phone,
+        provider: this.user.provider
 
       };
+      console.log(obj)
       this.$store.dispatch("createJobGeo", obj);
+      this.$store.dispatch("createJob",obj)
     }
   }
 };
