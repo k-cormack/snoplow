@@ -38,14 +38,18 @@ export default {
       center: new google.maps.LatLng(43.615, -116.2023),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+
     var map = new google.maps.Map(element, options);
+
     this.markerCoordinates.forEach((coord, index) => {
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(coord.latitude, coord.longitude),
         title: "Stupid loop "+ index,
         visible: true
       });
+
       marker.setMap(map);
+      
     });
   }
 };
