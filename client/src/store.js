@@ -105,7 +105,7 @@ export default new Vuex.Store({
     commit('setMap', mapData)
   },
   createJobGeo({commit, dispatch}, payload){
-    apiGeo.get(payload.street+ apiKey)
+    apiGeo.get(payload.address+ apiKey)
     .then(res=>{
       commit("setJobLocation",res.data)
     })

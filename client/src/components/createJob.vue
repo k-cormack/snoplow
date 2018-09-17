@@ -1,7 +1,7 @@
 <template>
 <div class="createJob">
     <form @submit.prevent="addJob">
-      <input type="text" placeholder="Street Adress" v-model="newJob.street" required>
+      <input type="text" placeholder="Street Address, City, State" v-model="newJob.address" required>
       <!-- <input type="text" placeholder="City" v-model="newJob.city">
       <input type="text" placeholder="State" v-model="newJob.state">
       <input type="text" placeholder="Zip" v-model="newJob.zip"> -->
@@ -12,37 +12,23 @@
 </div>
 </template>
 <script>
-
 export default {
   data() {
     return {
       newJob: {
-        
-          street: "",
-        //   city: "",
-        //   state: "",
-        //   zip: "",
-        
+        address: "",
         complete: false
       }
     };
   },
-computed:{
-
-},
+  computed: {},
   methods: {
-    addJob(){
-
-        
-    let obj =    {
-      street:this.newJob.street,
-    // city:this.newJob.city,
-    // state:this.newJob.state,
+    addJob() {
+      let obj = {
+        address: this.newJob.address
+      };
+      this.$store.dispatch("createJobGeo", obj);
     }
-    this.$store.dispatch('createJobGeo',obj)
-        }
-
-
   }
 };
 </script>
@@ -51,5 +37,3 @@ computed:{
   padding-left: 5rem;
 }
 </style>
-
-    // this.newJob.zip
