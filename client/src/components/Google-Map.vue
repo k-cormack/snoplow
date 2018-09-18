@@ -46,7 +46,6 @@
 
       this.markerCoordinates.forEach((coord, index) => {
         let condition = this.$store.state.user.provider
-        debugger
         if (!condition) {
 
           var content =
@@ -82,7 +81,7 @@
           if (!condition) {
           var postButton = document.getElementById('postButton');
           google.maps.event.addDomListener(postButton, 'click', function () {
-            console.log("Job Posted")
+            console.log("New Job Posted")
             self.$store.dispatch('postJob', marker.position)
           });
         }else{
