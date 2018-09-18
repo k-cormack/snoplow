@@ -80,14 +80,17 @@
           this.closeAll()
           marker.infowindow.open(this.map, marker);
           var postButton = document.getElementById('postButton');
-          google.maps.event.addDomListener(postButton, 'click', function(){
-            console.log("test event")
+          google.maps.event.addDomListener(postButton, 'click', function () {
+            console.log("New Job Posted")
             self.$store.dispatch('postJob', marker.position)
-          })
-         
-            
-          
-          
+          });
+        }else{
+          var bidButton = document.getElementById('bidButton');
+          google.maps.event.addDomListener(bidButton, 'click', function () {
+            console.log("Job Bid Submitted")
+            self.$store.dispatch('bidJob', marker.position)
+          });
+        }
         });
         
         google.maps.event.addListener(this.map, 'click', function () {
@@ -108,7 +111,7 @@
     background: gray;
   }
 
-  #iw-container {
+  .iw-container {
     color: black
   }
 </style>

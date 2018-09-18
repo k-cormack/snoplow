@@ -123,7 +123,7 @@ export default new Vuex.Store({
       commit('isProvider')
     },
     postJob({commit}, jobData) {
-      console.log('jobData')
+      console.log('postJob in store.js')
     }
   }
 })

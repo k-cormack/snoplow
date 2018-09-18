@@ -10,7 +10,7 @@
     <div class="col-12 main" id="top">
       <div class="row">
 
-        <h1>Looking for Service?</h1>
+        <h1>Looking for Plow Service?</h1>
       </div>
       <div class="row">
         <button @click="customerLogin" type="button" class="btn btn-primary btn-lg">Customer</button>
@@ -18,7 +18,7 @@
     </div>
     <div class="col-12 main">
     <div class="row">
-      <h1>Looking for Plowing Job?</h1>
+      <h1>Looking for Plowing Jobs?</h1>
     </div>
     <div class="row">
       <button @click="providerLogin" type="button" class="btn btn-success btn-lg">Provider</button>
