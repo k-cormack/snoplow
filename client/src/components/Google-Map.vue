@@ -45,12 +45,23 @@
 
 
       this.markerCoordinates.forEach((coord, index) => {
-        
-        var content =
-        '</div>' +
-        '<button id="postButton" v-on:click="postJob" class="ui-btn ui-mini" type="submit">POST</button>' +
-        '</div>';
-        
+        let condition = this.$store.state.user.provider
+        debugger
+        if (!condition) {
+
+          var content =
+            '<div class="iw-container">' +
+            '<div>Job info here</div>' +
+            '<button id="postButton" class="ui-btn ui-mini" type="submit">POST JOB</button>' +
+            '</div>';
+        } else {
+          var content =
+          '<div class="iw-container">' +
+            '<div>Job info here</div>' +
+            '<button id="bidButton" class="ui-btn ui-mini" type="submit">BID on JOB</button>' +
+            '</div>';
+        }
+
         var locationInfowindow = new google.maps.InfoWindow({
           content: content,
           maxWidth: 300,
@@ -61,24 +72,28 @@
           visible: true,
           infowindow: locationInfowindow
         });
-        
+
         marker.setMap(map);
-        
+
         marker.addListener('click', (event) => {
           let self = this
           this.closeAll()
           marker.infowindow.open(map, marker);
+          if (!condition) {
           var postButton = document.getElementById('postButton');
-          google.maps.event.addDomListener(postButton, 'click', function(){
-            console.log("test event")
+          google.maps.event.addDomListener(postButton, 'click', function () {
+            console.log("Job Posted")
             self.$store.dispatch('postJob', marker.position)
-          })
-         
-            
-          
-          
+          });
+        }else{
+          var bidButton = document.getElementById('bidButton');
+          google.maps.event.addDomListener(bidButton, 'click', function () {
+            console.log("Job Bid Submitted")
+            self.$store.dispatch('bidJob', marker.position)
+          });
+        }
         });
-        
+
         google.maps.event.addListener(map, 'click', function () {
           marker.infowindow.close();
         });
@@ -87,9 +102,9 @@
       });
     },
     methods: {
-      postjob: function(event) {
-        console.log("test event")
-      },
+      // postjob: function(event) {
+      //   console.log("test event")
+      // },
       // postJob() {
       //   debugger
       //   this.$store.dispatch('postJob', marker.position)
@@ -111,7 +126,7 @@
     background: gray;
   }
 
-  #iw-container {
+  .iw-container {
     color: black
   }
 </style>
