@@ -56,11 +56,21 @@
       },
       drawMarkers(){
         this.markerCoordinates.forEach((coord, index) => {
-        debugger
-        var content =
-        '</div>' +
-        '<button id="postButton" v-on:click="postJob" class="ui-btn ui-mini" type="submit">POST</button>' +
+          let condition = this.$store.state.user.provider
+    if (!condition) {
+
+      var content =
+        '<div class="iw-container">' +
+        '<div>Job info here</div>' +
+        '<button id="postButton" class="ui-btn ui-mini" type="submit">POST JOB</button>' +
         '</div>';
+    } else {
+      var content =
+      '<div class="iw-container">' +
+        '<div>Job info here</div>' +
+        '<button id="bidButton" class="ui-btn ui-mini" type="submit">BID on JOB</button>' +
+        '</div>';
+    }
         
         var locationInfowindow = new google.maps.InfoWindow({
           content: content,
@@ -79,6 +89,7 @@
           let self = this
           this.closeAll()
           marker.infowindow.open(this.map, marker);
+          if (!condition) {
           var postButton = document.getElementById('postButton');
           google.maps.event.addDomListener(postButton, 'click', function () {
             console.log("New Job Posted")
