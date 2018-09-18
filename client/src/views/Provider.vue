@@ -4,11 +4,11 @@
             <Navbar />
         </div>
         <div class="row">
-            <div class="google-map col-xs-8" id="mapName">
+            <div class="google-map col-8" id="mapName">
                 <googleMaps />
             </div>
-            <div class="side-jobs col-xs-4" v-for="job in jobs" :key="job._id">
-                <Job :jobData='job' />
+            <div class="side-jobs col-4" >
+                <findJob />
             </div>
         </div>
     </div>
@@ -18,14 +18,14 @@
 
     import googleMaps from "@/components/Google-Map.vue"
     import Navbar from '@/components/Navbar.vue'
-    import Job from '@/components/Job.vue'
+    import findJob from '@/components/findJob.vue'
 
     export default {
         name: 'provider',
         components: {
             googleMaps,
             Navbar,
-            Job
+            findJob
         }
     }
 </script>

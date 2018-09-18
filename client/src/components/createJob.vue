@@ -4,11 +4,9 @@
       <input type="text" placeholder="Street Address," v-model="newJob.street" required>
       <input type="text" placeholder="City" v-model="newJob.city">
       <input type="text" placeholder="State" v-model="newJob.state">
-      <!-- <input type="text" placeholder="Zip" v-model="newJob.zip"> -->
+      <input type="text" placeholder="Zip" v-model="newJob.zip">
       <button type="submit">Create Job</button>
-    </form>
-        
- 
+    </form> 
 </div>
 </template>
 <script>
