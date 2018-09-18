@@ -18,7 +18,6 @@
         data: function () {
             return {
                 findJob: {
-                    
                     city: "",
                     state: "",
                     zip: ""
@@ -44,5 +43,5 @@
 </script>
 
 <style scoped>
-
+    
 </style>

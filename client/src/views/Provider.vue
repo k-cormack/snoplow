@@ -30,6 +30,8 @@
     }
 </script>
 
-<style>
-    
+<style scoped>
+    .col-4 {
+        padding-left: 15px
+    }
 </style>

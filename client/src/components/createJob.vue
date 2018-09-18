@@ -47,8 +47,6 @@ export default {
   }
 };
 </script>
-<style>
-.col-4 {
-  padding-left: 5rem;
-}
+<style scoped>
+
 </style>
