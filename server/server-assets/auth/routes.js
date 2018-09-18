@@ -20,14 +20,14 @@ router.post('/auth/register', (req, res) => {
   req.body.password = Users.generateHash(req.body.password)
   //CREATE THE USER
 
-  if(req.body.provider){
-    Provider.create(req.body)
-      .then(res=>{
-        req.body.providerId = res._id
+  // if(req.body.provider){
+  //   Provider.create(req.body)
+  //     .then(res=>{
+  //       req.body.providerId = res._id
 
-          Users.create
-      })
-  }
+  //         Users.create
+  //     })
+  // }
 
 
 
