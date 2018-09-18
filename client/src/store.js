@@ -30,7 +30,10 @@ export default new Vuex.Store({
     user: {},
     map: {},
     jobLocation: { lat: 0, lng: 0 },
-    job:{}
+    job:{},
+    pendingJobs: [],
+    activeJobs: [],
+    completedJobs: [],
   },
   mutations: {
     setUser(state, user) {
@@ -115,6 +118,9 @@ export default new Vuex.Store({
     },
     setUserisProvider({ commit }) {
       commit('isProvider')
+    },
+    postJob({commit}, jobData) {
+      console.log('jobData')
     }
   }
 })

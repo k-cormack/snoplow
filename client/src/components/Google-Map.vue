@@ -27,7 +27,7 @@
         ]
       };
     },
-    
+
     computed: {
       myMapData() {
         this.$store.state.map;
@@ -43,13 +43,14 @@
 
       var map = new google.maps.Map(element, options);
 
+
       this.markerCoordinates.forEach((coord, index) => {
         
-        var content = 
-          '</div>' +
-          '<button @click="postJob()">POST</button>' +
-          '</div>';
-
+        var content =
+        '</div>' +
+        '<button id="postButton" v-on:click="postJob" class="ui-btn ui-mini" type="submit">POST</button>' +
+        '</div>';
+        
         var locationInfowindow = new google.maps.InfoWindow({
           content: content,
           maxWidth: 300,
@@ -60,14 +61,24 @@
           visible: true,
           infowindow: locationInfowindow
         });
-
+        
         marker.setMap(map);
-
+        
         marker.addListener('click', (event) => {
+          let self = this
           this.closeAll()
           marker.infowindow.open(map, marker);
+          var postButton = document.getElementById('postButton');
+          google.maps.event.addDomListener(postButton, 'click', function(){
+            console.log("test event")
+            self.$store.dispatch('postJob', marker.position)
+          })
+         
+            
+          
+          
         });
-
+        
         google.maps.event.addListener(map, 'click', function () {
           marker.infowindow.close();
         });
@@ -76,12 +87,15 @@
       });
     },
     methods: {
-      postJob() {
-        debugger
-        this.$store.dispatch('postJob', marker.position)
+      postjob: function(event) {
+        console.log("test event")
       },
-      closeAll(){
-        this.markers.forEach(m=>{
+      // postJob() {
+      //   debugger
+      //   this.$store.dispatch('postJob', marker.position)
+      // },
+      closeAll() {
+        this.markers.forEach(m => {
           m.infowindow.close();
         })
       }
