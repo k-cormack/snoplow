@@ -36,7 +36,7 @@
     mounted: function () {
       const element = document.getElementById("googleMap");
       var options = {
-        zoom: 14,
+        zoom: 15,
         center: new google.maps.LatLng(43.615, -116.2023),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
@@ -92,7 +92,7 @@
 <style>
   #googleMap {
     display: flex;
-    width: 70vw;
+    width: 60vw;
     height: 90vh;
     background: gray;
   }
