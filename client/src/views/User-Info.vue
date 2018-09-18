@@ -7,7 +7,7 @@
       <div>
         <h1>Pending Jobs</h1>
         <div class="row">
-          <findJob class="col-12" v-for="job in jobs" :key="job._id" :jobData="job"/>
+          <JobInfo class="col-12" v-for="job in jobs" :key="job._id" :jobData="job"/>
         </div>
 
       </div>
@@ -26,14 +26,19 @@
 <script>
 
   import Navbar from '@/components/Navbar';
-  import findJob from '@/components/findJob'
+  import JobInfo from '@/components/JobInfo'
 
   export default {
     name: "userInfo",
     components: {
       Navbar,
-      findJob
+      JobInfo
     },
+    computed: {
+      jobs(){
+        return this.$store.state.job
+      }
+    }
   }
 
 </script>
