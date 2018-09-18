@@ -2,7 +2,6 @@
   <div>
     <div id="googleMap">
     </div>
-    {{myMapData}}
 
   </div>
 </template>
@@ -14,23 +13,13 @@
     data: function () {
       return {
         mapName: this.name + "-map",
-        markers: [],
-        markerCoordinates: [
-          {
-            latitude: 43.615,
-            longitude: -116.2023
-          },
-          {
-            latitude: 43.62,
-            longitude: -116.2023
-          }
-        ]
+        map:{}
       };
     },
 
     computed: {
-      myMapData() {
-        this.$store.state.map;
+      markerCoordinates() {
+        return this.$store.state.jobLocations;
       }
     },
     mounted: function () {
@@ -41,11 +30,33 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
 
-      var map = new google.maps.Map(element, options);
+      this.map = new google.maps.Map(element, options);
 
 
-      this.markerCoordinates.forEach((coord, index) => {
-        
+      this.drawMarkers()
+    },
+    watch:{
+      markerCoordinates: function(newVal){
+        this.drawMarkers()
+
+      }
+    },
+    methods: {
+      postjob: function(event) {
+        console.log("test event")
+      },
+      // postJob() {
+      //   debugger
+      //   this.$store.dispatch('postJob', marker.position)
+      // },
+      closeAll() {
+        this.markers.forEach(m => {
+          m.infowindow.close();
+        })
+      },
+      drawMarkers(){
+        this.markerCoordinates.forEach((coord, index) => {
+        debugger
         var content =
         '</div>' +
         '<button id="postButton" v-on:click="postJob" class="ui-btn ui-mini" type="submit">POST</button>' +
@@ -62,12 +73,12 @@
           infowindow: locationInfowindow
         });
         
-        marker.setMap(map);
+        marker.setMap(this.map);
         
         marker.addListener('click', (event) => {
           let self = this
           this.closeAll()
-          marker.infowindow.open(map, marker);
+          marker.infowindow.open(this.map, marker);
           var postButton = document.getElementById('postButton');
           google.maps.event.addDomListener(postButton, 'click', function(){
             console.log("test event")
@@ -79,25 +90,11 @@
           
         });
         
-        google.maps.event.addListener(map, 'click', function () {
+        google.maps.event.addListener(this.map, 'click', function () {
           marker.infowindow.close();
         });
 
-        this.markers.push(marker)
       });
-    },
-    methods: {
-      postjob: function(event) {
-        console.log("test event")
-      },
-      // postJob() {
-      //   debugger
-      //   this.$store.dispatch('postJob', marker.position)
-      // },
-      closeAll() {
-        this.markers.forEach(m => {
-          m.infowindow.close();
-        })
       }
     }
   };

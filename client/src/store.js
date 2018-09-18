@@ -29,7 +29,7 @@ export default new Vuex.Store({
   state: {
     user: {},
     map: {},
-    jobLocation: { lat: 0, lng: 0 },
+    jobLocations: [{ lat: 0, lng: 0 }],
     job:{},
     pendingJobs: [],
     activeJobs: [],
@@ -44,8 +44,11 @@ export default new Vuex.Store({
     },
     setJobLocation(state, payload) {
       console.log(payload)
-      state.jobLocation.lat = payload.results[0].geometry.location.lat,
-      state.jobLocation.lng = payload.results[0].geometry.location.lng,
+      let jobLocation = {
+        lat: payload.results[0].geometry.location.lat,
+        lng: payload.results[0].geometry.location.lng
+      }
+      state.jobLocations.push(jobLocation)
       console.log(payload.results[0].geometry.location.lat, payload.results[0].geometry.location.lng)
     },
     isProvider(state) {
