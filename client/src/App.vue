@@ -12,7 +12,7 @@
 
 </script>
 
-<style scoped>
+<style>
   body {
     background: url('./assets/plowDriveway.jpg') no-repeat center fixed;
     background-size: cover;

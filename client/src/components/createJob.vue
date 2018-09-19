@@ -64,18 +64,9 @@
   };
 </script>
 <style scoped>
-<<<<<<< HEAD
-  label,
-  span {
-=======
-.createJob{
-    
-}
+
   label, span {
->>>>>>> e05fc72c5c73149ed6870a36c5061f60a3a06c12
     color: white
   }
-  .pure-controls {
-    
-  }
+  
 </style>
