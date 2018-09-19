@@ -23,6 +23,9 @@
       },
       markerCoordinates() {
         return this.$store.state.jobLocations;
+      },
+      job(){
+        return this.$store.state.job[this.customerId]
       }
     },
     mounted: function () {
@@ -92,6 +95,7 @@
 
 
           marker.addListener('click', (event) => {
+            let jobs = this.job
             let self = this
             this.closeAll()
             marker.infowindow.open(this.map, marker);
@@ -101,13 +105,16 @@
                 let jobInfo = {
                   customerName: self.user.name,
                   customerId: self.user._id,
-                  // street: self.newJob.street,
-                  // state: self.newJob.state,
-                  // city: self.newJob.city,
-                  // zip: self.newJob.zip,
+                  street: jobs.street,
+                  state: jobs.state,
+                  city: jobs.city,
+                customerEmail: jobs.cuustomerEmail,
+                customerPhone: jobs.customerPhone
+
+                
                 };
                 console.log("New Job Posted")
-                self.$store.dispatch('postJob', jobInfo)
+                self.$store.dispatch('createJob', jobInfo)
               });
             } else {
               var bidButton = document.getElementById('bidButton');

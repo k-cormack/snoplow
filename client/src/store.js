@@ -31,7 +31,7 @@ export default new Vuex.Store({
     map: {},
     jobLocations: [],
     job:{},
-    pendingJobs: [],
+    pendingJobs: {},
     activeJobs: [],
     completedJobs: [],
     markers: [],
@@ -56,10 +56,14 @@ export default new Vuex.Store({
       state.user.provider = true
     },
     setJob(state,job){
+      debugger
       console.log(job)
-
       state.job = job
     },
+    setActiveJob(state,job){
+      state.activeJobs = job
+    },
+
     setMarkers(state, marker) {
       state.markers.push(marker)
     }
@@ -119,20 +123,27 @@ export default new Vuex.Store({
         })
     },
 
-    postJob({commit ,dispatch}, job){      
+    postJobOnMap({commit ,dispatch}, job){      
+      commit("setJob", job)
+      console.log('postJob in store.js')
+    },
+    creatJob({commit, dispatch},job){
       api.post('job', job)
       .then(res=>{
-        commit("setJob", res.data)
-        console.log('postJob in store.js')
-        
-      })
-    },
+        commit("setActiveJob",res.data)
+        })
 
+<<<<<<< HEAD
+    },
+    
+      
+=======
     getJobs({commit, dispatch}){
       api.get('job')
       .then(res => commit('setJobLocation', res.data))
     },
 
+>>>>>>> 4af67cc4267d3947c345eb581155dd34802fd16d
     setUserisProvider({ commit }) {
       commit('isProvider')
     },
