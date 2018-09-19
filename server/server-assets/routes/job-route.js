@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
       res.send(data)
     })
     .catch(err => {
-      console.log(err)
+      res.status(400).send(err)
       next()
     })
 })
