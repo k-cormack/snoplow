@@ -56,8 +56,8 @@ export default new Vuex.Store({
       state.user.provider = true
     },
     setJob(state,job){
-      debugger
       console.log(job)
+      debugger
       state.job = job
     },
     setActiveJob(state,job){

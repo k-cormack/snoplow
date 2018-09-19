@@ -10,7 +10,7 @@ router.post('*', (req, res, next)=>{
 
 //GET
 router.get('/', (req, res, next) => {
-  Jobs.find({ authorId: req.session.uid })
+  Jobs.find()
     .then(data => {
       res.send(data)
     })
