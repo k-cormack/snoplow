@@ -127,7 +127,7 @@ export default new Vuex.Store({
       commit("setJob", job)
       console.log('postJob in store.js')
     },
-    creatJob({commit, dispatch},job){
+    createJob({commit, dispatch},job){
       api.post('job', job)
       .then(res=>{
         commit("setActiveJob",res.data)

@@ -50,5 +50,8 @@ export default {
 };
 </script>
 <style scoped>
+.createJob{
+    
+}
 
 </style>
