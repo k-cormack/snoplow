@@ -133,17 +133,9 @@ export default new Vuex.Store({
         commit("setActiveJob",res.data)
         })
 
-<<<<<<< HEAD
     },
     
       
-=======
-    getJobs({commit, dispatch}){
-      api.get('job')
-      .then(res => commit('setJobLocation', res.data))
-    },
-
->>>>>>> 4af67cc4267d3947c345eb581155dd34802fd16d
     setUserisProvider({ commit }) {
       commit('isProvider')
     },
