@@ -22,29 +22,29 @@ export default {
       }
     };
   },
-  // computed: {
-  //     user(){
-  //         return this.$store.state.user;
-  //     }
-  // },
+  computed: {
+      user(){
+          return this.$store.state.user;
+      }
+  },
   methods: {
 
     lookupJobLoc() {
       let obj = {
-          // customerName: this.user.name,
-          // customerId: this.user._id,
+          customerName: this.user.name,
+          customerId: this.user._id,
           street: this.newJob.street,
           state: this.newJob.state,
           city: this.newJob.city,
           zip: this.newJob.zip,
-          // customerEmail: this.user.email,
-          // customerPhone: this.user.phone,
-          // provider: this.user.provider
+          customerEmail: this.user.email,
+          customerPhone: this.user.phone,
+          provider: this.user.provider
 
       };
       console.log(obj)
       this.$store.dispatch("createJobGeo", obj);
-      // this.$store.dispatch("createJob",obj)
+      this.$store.dispatch("postJobOnMap",obj)
     }
   }
 };
