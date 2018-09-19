@@ -7,7 +7,7 @@
                 <input type="password" v-model="creds.password" placeholder="  Password" required>
               </div>
               <div>
-                <button type="submit">LOGIN</button>
+                <button type="submit" id="login-button">LOGIN</button>
               </div>
             </form>
           </div>
@@ -90,7 +90,8 @@
       
         button {
           background-color: green;
-          color: white
+          color: white;
+          text-shadow: 1.5px 1.5px black
         }
       
         input,

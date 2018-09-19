@@ -87,8 +87,8 @@
     margin-bottom: 47vh
   }
 
-  #about-button {
-    text-shadow: 2px 2px black;
+  #about-button, #footer-button {
+    text-shadow: 1px 1px black;
   }
 
   #about {
