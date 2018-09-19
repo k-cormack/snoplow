@@ -33,7 +33,7 @@
       var options = {
         zoom: 15,
         center: new google.maps.LatLng(43.615, -116.2023),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP, 
       };
 
       this.map = new google.maps.Map(element, options);
@@ -140,7 +140,7 @@
 <style>
   #googleMap {
     display: flex;
-    width: 60vw;
+    width: 75vh;
     height: 90vh;
     background: gray;
   }

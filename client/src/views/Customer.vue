@@ -46,7 +46,11 @@
     .main, map {
         padding-top: 5px;
         margin: 0px;
-        justify-content: flex-start
+        justify-content: flex-start;
+    }
+    .google-map {
+        width: 100%;
+        height: 100%;
     }
    
 </style>
