@@ -122,7 +122,6 @@ export default new Vuex.Store({
           commit("setJobLocation", res.data)
         })
     },
-
     postJobOnMap({commit ,dispatch}, job){      
       commit("setJob", job)
       console.log('postJob in store.js')
@@ -132,15 +131,11 @@ export default new Vuex.Store({
       .then(res=>{
         commit("setActiveJob",res.data)
         })
-      },
-    
-    
-      
+    },
     getJobs({commit, dispatch}){
       api.get('job')
-      .then(res => commit('setJobLocation', res.data))
+      .then(res => commit('setActiveJob', res.data))
     },
-
     setUserisProvider({ commit }) {
       commit('isProvider')
     },
