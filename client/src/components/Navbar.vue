@@ -1,14 +1,14 @@
 <template>
     <div class="col-12">
         <div class="customer-navbar row" v-if="!isProvider">
-            <button class="customer-account" @click="userInfo">Account</button>
-            <button class="post-job" @click="postJob">Post Job</button>
-            <button class="logout" @click="logout">Log Out</button>
+            <button class="customer-account pure-button" @click="userInfo">Account</button>
+            <button class="post-job pure-button" @click="postJob">Post Job</button>
+            <button class="logout pure-button" @click="logout">Log Out</button>
         </div>
         <div v-else class="customer-navbar row">
-            <button class="customer-account" @click="userInfo">Account</button>
-            <button class="find-job" @click="findJob">Find Job</button>
-            <button class="logout" @click="logout">Log Out</button>
+            <button class="customer-account pure-button" @click="userInfo">Account</button>
+            <button class="find-job pure-button" @click="findJob">Find Job</button>
+            <button class="logout pure-button" @click="logout">Log Out</button>
         </div>
 
 
@@ -88,6 +88,34 @@
 
     .row {
         justify-content: space-around
+    }
+
+    .customer-account {
+        background: rgb(223, 117, 20);
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .post-job {
+        background: rgb(28, 184, 65);
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .logout {
+        background: rgb(202, 60, 60);
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .find-job {
+        background: rgb(28, 184, 65);
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     }
 
     /* .dropdown-menu {
