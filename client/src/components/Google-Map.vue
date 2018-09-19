@@ -25,7 +25,7 @@
         return this.$store.state.jobLocations;
       },
       job(){
-        return this.$store.state.job[this.customerId]
+        return this.$store.state.job
       }
     },
     mounted: function () {
@@ -95,7 +95,7 @@
 
 
           marker.addListener('click', (event) => {
-            let jobs = this.job
+          
             let self = this
             this.closeAll()
             marker.infowindow.open(this.map, marker);
@@ -103,13 +103,14 @@
               var postButton = document.getElementById('postButton');
               google.maps.event.addDomListener(postButton, 'click', function () {
                 let jobInfo = {
+                  customerEmail: self.user.email,
                   customerName: self.user.name,
                   customerId: self.user._id,
-                  street: jobs.street,
-                  state: jobs.state,
-                  city: jobs.city,
-                customerEmail: jobs.cuustomerEmail,
-                customerPhone: jobs.customerPhone
+                  street: self.job.street,
+                  state: self.job.state,
+                  city: self.job.city,
+               
+                customerPhone: self.job.customerPhone
 
                 
                 };
@@ -146,5 +147,6 @@
 
   .iw-container {
     color: black
+
   }
 </style>
