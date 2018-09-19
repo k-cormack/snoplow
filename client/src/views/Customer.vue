@@ -37,6 +37,6 @@
         justify-content: center;
     }
     .col-4 {
-        padding-left: 15px
+        padding-left: 15px;
     }
 </style>

@@ -72,6 +72,7 @@
       
       <style scoped>
         p {
+          color: white;
           font-size: 35px;
           margin-top: 10px;
         }
