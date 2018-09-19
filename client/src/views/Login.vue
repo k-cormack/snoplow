@@ -15,8 +15,8 @@
             <form @submit.prevent="register">
               <div>
                 <input type="name" v-model="newUser.name" placeholder=" Name">
-                <input type="tel" minlength="10" v-model="newUser.phone" placeholder=" Phone">
                 <input type="email" v-model="newUser.email" placeholder=" E-mail Address">
+                <input type="tel" minlength="10" v-model="newUser.phone" placeholder=" Phone">
                 <input minlength="6" type="password" v-model="newUser.password" placeholder=" Password">
               </div>
               <div>
