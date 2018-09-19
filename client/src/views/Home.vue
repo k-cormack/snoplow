@@ -101,6 +101,7 @@
     /* font-size: 5vw; */
     font-size: calc(16px + 2vw);
     text-shadow: 2px 2px black;
+    
   }
 
   .row {
@@ -113,6 +114,6 @@
   }
 
   .col-lg-12 {
-    margin-block-end: 29%
+    margin-block-end: 25%
   }
 </style>
