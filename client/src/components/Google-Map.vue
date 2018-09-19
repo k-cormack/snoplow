@@ -18,6 +18,9 @@
     },
 
     computed: {
+      user() {
+        return this.$store.state.user;
+      },
       markerCoordinates() {
         return this.$store.state.jobLocations;
       }
@@ -91,8 +94,16 @@
             if (!condition) {
               var postButton = document.getElementById('postButton');
               google.maps.event.addDomListener(postButton, 'click', function () {
+                let jobInfo = {
+                  customerName: self.user.name,
+                  customerId: self.user._id,
+                  // street: self.newJob.street,
+                  // state: self.newJob.state,
+                  // city: self.newJob.city,
+                  // zip: self.newJob.zip,
+                };
                 console.log("New Job Posted")
-                self.$store.dispatch('postJob', marker)
+                self.$store.dispatch('postJob', jobInfo)
               });
             } else {
               var bidButton = document.getElementById('bidButton');

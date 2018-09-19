@@ -113,16 +113,16 @@ export default new Vuex.Store({
     // },
 
     createJobGeo({ commit, dispatch }, payload) {      
-      apiGeo.get(payload.street + payload.city + payload.state + apiKey)
+      apiGeo.get(payload.street + payload.city + payload.state + payload.zip + apiKey)
         .then(res => {
           commit("setJobLocation", res.data)
         })
     },
 
-    postJob({commit ,dispatch},obj){
-      api.post('job', obj)
+    postJob({commit ,dispatch}, job){      
+      api.post('job', job)
       .then(res=>{
-        commit("setJob",res.data)
+        commit("setJob", res.data)
         console.log('postJob in store.js')
         
       })
