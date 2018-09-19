@@ -70,15 +70,12 @@
   };
 </script>
 <style scoped>
-<<<<<<< HEAD
 .createJob{
     
 }
-=======
   label, span {
     color: white
   }
  
->>>>>>> 5eff1b7b0e5d976de4b9409ac80adc548405f9cd
 
 </style>
