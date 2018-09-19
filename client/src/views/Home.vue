@@ -58,6 +58,9 @@
 </script>
 
 <style scoped>
+  .home {
+    color: white;
+  }
   header {
     padding: 5px
   }
@@ -114,6 +117,7 @@
   }
 
   .col-lg-12 {
+    color: white;
     margin-block-end: 25%
   }
 </style>
