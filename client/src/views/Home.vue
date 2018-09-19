@@ -30,10 +30,9 @@
 
     </div>
     <div class="row">
-      <div class="col-lg-12" id="about">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet enim soluta
-        perspiciatis itaque quod quas a doloremque. Aliquid iure omnis vero dignissimos tempore reprehenderit vel,
-        obcaecati assumenda consequatur cumque quisquam!
-
+      <div class="col-lg-12" id="about">Welcome to SnoPlow! Your personal snowplow service! Here at SnoPlow we understand the struggle the long winters can take on someone. 
+        We are here to make your life easier! It's simple, all you have to do is sign up as a customer, confirm a date and time and one of our trusted providers will accept
+        your offer and come remove the ice and snow from your driveways and walkways! You can also become a provider and start helping people with in minutes! Sign up today!
       </div>
 
     </div>
