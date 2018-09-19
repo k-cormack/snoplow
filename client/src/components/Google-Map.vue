@@ -42,8 +42,9 @@
       }
     },
     methods: {
+
       closeAll() {
-        this.markers.forEach(m => {
+        this.$store.state.markers.forEach(m => {
           m.infowindow.close();
         })
       },
@@ -70,13 +71,18 @@
             maxWidth: 300,
           });
           var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(coord.latitude, coord.longitude),
+            position: new google.maps.LatLng(coord.lat, coord.lng),
             title: "Stupid loop " + index,
             visible: true,
-            infowindow: locationInfowindow
+            infowindow: locationInfowindow,
+            // use this inside:
+            // map: this.map
           });
+          //or this outside:
 
-          marker.setMap(this.map);
+          this.$store.dispatch('addMarker', marker);
+
+
 
           marker.addListener('click', (event) => {
             let self = this
@@ -86,13 +92,13 @@
               var postButton = document.getElementById('postButton');
               google.maps.event.addDomListener(postButton, 'click', function () {
                 console.log("New Job Posted")
-                self.$store.dispatch('postJob', marker.position)
+                self.$store.dispatch('postJob', marker)
               });
             } else {
               var bidButton = document.getElementById('bidButton');
               google.maps.event.addDomListener(bidButton, 'click', function () {
                 console.log("Job Bid Submitted")
-                self.$store.dispatch('bidJob', marker.position)
+                self.$store.dispatch('bidJob', marker)
               });
             }
           });
@@ -101,8 +107,9 @@
             marker.infowindow.close();
           });
 
+          marker.setMap(this.map);
         });
-      }
+      },
     }
   };
 </script>

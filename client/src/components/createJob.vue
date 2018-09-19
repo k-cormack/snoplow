@@ -1,11 +1,11 @@
 <template>
 <div class="createJob">
-    <form @submit.prevent="addJob">
+    <form @submit.prevent="lookupJobLoc">
       <input type="text" placeholder="Street Address," v-model="newJob.street" required>
       <input type="text" placeholder="City" v-model="newJob.city">
       <input type="text" placeholder="State" v-model="newJob.state">
       <input type="text" placeholder="Zip" v-model="newJob.zip">
-      <button type="submit">Create Job</button>
+      <button type="submit">Verify Plow Location</button>
     </form> 
 </div>
 </template>
@@ -28,21 +28,21 @@ export default {
   },
   methods: {
 
-    addJob() {
+    lookupJobLoc() {
       let obj = {
           customerName: this.user.name,
           customerId: this.user._id,
-        street: this.newJob.street,
-        state: this.newJob.state,
-        city: this.newJob.city,
-        customerEmail: this.user.email,
-        customerPhone: this.user.phone,
-        provider: this.user.provider
+          street: this.newJob.street,
+          state: this.newJob.state,
+          city: this.newJob.city,
+          customerEmail: this.user.email,
+          customerPhone: this.user.phone,
+          provider: this.user.provider
 
       };
       console.log(obj)
       this.$store.dispatch("createJobGeo", obj);
-      this.$store.dispatch("createJob",obj)
+      // this.$store.dispatch("createJob",obj)
     }
   }
 };

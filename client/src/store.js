@@ -29,11 +29,12 @@ export default new Vuex.Store({
   state: {
     user: {},
     map: {},
-    jobLocations: [{ lat: 0, lng: 0 }],
+    jobLocations: [],
     job:{},
     pendingJobs: [],
     activeJobs: [],
     completedJobs: [],
+    markers: [],
   },
   mutations: {
     setUser(state, user) {
@@ -58,7 +59,9 @@ export default new Vuex.Store({
       console.log(job)
 
       state.job = job
-
+    },
+    setMarkers(state, marker) {
+      state.markers.push(marker)
     }
   },
   actions: {
@@ -103,28 +106,35 @@ export default new Vuex.Store({
     },
 
     // Map
-    addMapData({ commit }, mapData) {
-      commit('setMap', mapData)
-    },
-    createJobGeo({ commit, dispatch }, payload) {
-      
+
+
+    // addMapData({ commit }, mapData) {
+    //   commit('setMap', mapData)
+    // },
+
+    createJobGeo({ commit, dispatch }, payload) {      
       apiGeo.get(payload.street + payload.city + payload.state + apiKey)
         .then(res => {
           commit("setJobLocation", res.data)
         })
     },
-    createJob({commit ,dispatch},obj){
+
+    postJob({commit ,dispatch},obj){
       api.post('job', obj)
       .then(res=>{
         commit("setJob",res.data)
+        console.log('postJob in store.js')
+        
       })
     },
+
     setUserisProvider({ commit }) {
       commit('isProvider')
     },
-    postJob({commit}, jobData) {
-      console.log('postJob in store.js')
+    addMarker({commit}, marker) {
+      commit('setMarkers', marker)
     }
+    
   }
 })
 
