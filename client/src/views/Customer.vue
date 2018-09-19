@@ -3,13 +3,16 @@
         <div class="row">
             <Navbar />
         </div>
-        <div class="row">
-
-            <div class="google-map col-8" id="mapName">
-                <googleMaps />
+        <div class="row main">
+            <div class="row map">
+                <div class="google-map col-12" id="mapName">
+                    <googleMaps />
+                </div>
             </div>
-            <div class="col-4">
-                <createJob />
+            <div class="row">
+                <div class="col-12">
+                    <createJob />
+                </div>
             </div>
         </div>
     </div>
@@ -36,7 +39,14 @@
     .row {
         justify-content: center;
     }
+
     .col-4 {
         padding-left: 15px;
     }
+    .main, map {
+        padding-top: 5px;
+        margin: 0px;
+        justify-content: flex-start
+    }
+   
 </style>
