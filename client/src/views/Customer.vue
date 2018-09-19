@@ -9,8 +9,8 @@
                     <googleMaps />
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
+            <div class="row form-row">
+                <div class="job-form col-12">
                     <createJob />
                 </div>
             </div>
@@ -35,22 +35,22 @@
     }      
 </script>
 
-<style scoped>
-    .row {
+<style scoped>    
+
+    .job-form {
+        margin-left: 15px;
         justify-content: center;
     }
 
-    .col-4 {
-        padding-left: 15px;
-    }
-    .main, map {
+    .main {
         padding-top: 5px;
-        margin: 0px;
-        justify-content: flex-start;
+        /* margin: 0px; */
+        justify-content: center;
+        
     }
-    .google-map {
-        width: 100%;
-        height: 100%;
-    }
-   
+
+    /* .google-map {
+        margin-left: 80px;
+       
+    } */
 </style>

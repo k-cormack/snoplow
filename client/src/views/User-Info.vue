@@ -45,6 +45,7 @@
 
 <style scoped>
   .container {
+    color: white;
     background-color: rgba(0, 68, 255, 0.555);
     border-radius: 10px;
     text-shadow: 2px 2px black;

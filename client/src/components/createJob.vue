@@ -68,5 +68,8 @@
   label, span {
     color: white
   }
+  .pure-control-group {
+    justify-content: center
+  }
   
 </style>

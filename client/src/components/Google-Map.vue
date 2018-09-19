@@ -140,7 +140,7 @@
 <style>
   #googleMap {
     display: flex;
-    width: 75vh;
+    width: 75vw;
     height: 90vh;
     background: gray;
   }
