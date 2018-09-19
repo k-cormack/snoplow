@@ -53,12 +53,16 @@
       },
       drawMarkers() {
         this.markerCoordinates.forEach((coord, index) => {
-          let condition = this.$store.state.user.provider
-          if (!condition) {
+          if (!this.$store.state.user.provider) {
 
             var content =
-              '<div class="iw-container">' +
-              '<div>Job info here</div>' +
+            '<div class="iw-container">' +
+              '<div>' +
+              this.$store.state.user.name +
+              '</div>' +
+              '<div>' +
+              this.$store.state.user._id +
+              '</div>' +
               '<button id="postButton" class="ui-btn ui-mini" type="submit">POST JOB</button>' +
               '</div>';
           } else {
@@ -91,7 +95,7 @@
             let self = this
             this.closeAll()
             marker.infowindow.open(this.map, marker);
-            if (!condition) {
+            if (!this.$store.state.user.provider) {
               var postButton = document.getElementById('postButton');
               google.maps.event.addDomListener(postButton, 'click', function () {
                 let jobInfo = {
