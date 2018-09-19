@@ -26,7 +26,11 @@
             googleMaps,
             Navbar,
             findJob
-        }
+        },
+
+    mounted: function(){
+        this.$store.dispatch('getJobs')
+    }
     }
 </script>
 
