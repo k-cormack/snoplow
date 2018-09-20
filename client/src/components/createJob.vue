@@ -1,5 +1,5 @@
 <template>
-  <div class="createJob">
+  <div class="createJob col-md-3">
     <form class="pure-form pure-form-aligned" @submit.prevent="lookupJobLoc">
       <fieldset>
         <div class="pure-control-group">

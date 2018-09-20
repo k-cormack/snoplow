@@ -1,9 +1,23 @@
 <template>
-    <div class="customer container-fluid">
+    <div class="customer">
         <div class="row">
             <Navbar />
         </div>
-        <div class="row main">
+
+        <div class="row map">
+            <div class="col-md-8">
+                <googleMaps />
+            </div>
+            <createJob />
+            <!-- <div class="job-form col-md-4">
+            </div> -->
+        </div>
+
+
+
+        <!--Original code below-->
+
+        <!-- <div class="row main">
             <div class="row map">
                 <div class="google-map col-12" id="mapName">
                     <googleMaps />
@@ -14,7 +28,7 @@
                     <createJob />
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -35,18 +49,17 @@
     }      
 </script>
 
-<style scoped>    
-
+<style scoped>
     .job-form {
         margin-left: 15px;
         justify-content: center;
     }
 
-    .main {
+    .map {
         padding-top: 5px;
         /* margin: 0px; */
         justify-content: center;
-        
+
     }
 
     /* .google-map {

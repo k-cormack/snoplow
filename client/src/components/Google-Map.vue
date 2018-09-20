@@ -1,9 +1,13 @@
 <template>
-  <div>
-    <div id="googleMap">
-    </div>
 
+  <div>
+    <div id="job-map" style="height: 80vh; width: 100%; position: relative;">
+      <div id="googleMap">
+      </div>
+    </div>
   </div>
+
+
 </template>
 
 <script>
@@ -24,7 +28,7 @@
       markerCoordinates() {
         return this.$store.state.jobLocations;
       },
-      job(){
+      job() {
         return this.$store.state.job
       }
     },
@@ -33,7 +37,7 @@
       var options = {
         zoom: 15,
         center: new google.maps.LatLng(43.615, -116.2023),
-        mapTypeId: google.maps.MapTypeId.ROADMAP, 
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
       };
 
       this.map = new google.maps.Map(element, options);
@@ -59,7 +63,7 @@
           if (!this.$store.state.user.provider) {
 
             var content =
-            '<div class="iw-container">' +
+              '<div class="iw-container">' +
               '<div>' +
               this.$store.state.user.name +
               '</div>' +
@@ -95,7 +99,7 @@
 
 
           marker.addListener('click', (event) => {
-          
+
             let self = this
             this.closeAll()
             marker.infowindow.open(this.map, marker);
@@ -109,10 +113,10 @@
                   street: self.job.street,
                   state: self.job.state,
                   city: self.job.city,
-               
-                customerPhone: self.job.customerPhone
 
-                
+                  customerPhone: self.job.customerPhone
+
+
                 };
                 console.log("New Job Posted")
                 self.$store.dispatch('createJob', jobInfo)
@@ -140,13 +144,12 @@
 <style>
   #googleMap {
     display: flex;
-    width: 75vw;
-    height: 90vh;
+    /* width: 60vw; */
+    height: 80vh;
     background: gray;
   }
 
   .iw-container {
     color: black
-
   }
 </style>
