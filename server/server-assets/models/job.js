@@ -18,7 +18,7 @@ let schema = new Schema({
   state: { type: String, required: true },
   city: { type: String, required: true },
   lat: {type: String, required: true},
-  long: {type: String, required: true},
+  lng: {type: String, required: true},
   customerPhone: { type: String, required: true },
 })
 
