@@ -1,27 +1,27 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import Axios from 'axios'
-import router from './router'
+import Vue from "vue";
+import Vuex from "vuex";
+import Axios from "axios";
+import router from "./router";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 let auth = Axios.create({
   baseURL: "//localhost:3000/auth/",
   timeout: 3000,
   withCredentials: true
-})
+});
 
 let api = Axios.create({
   baseURL: "//localhost:3000/api/",
   timeout: 3000,
   withCredentials: true
-})
+});
 
 let apiGeo = Axios.create({
-  baseURL: "https://maps.googleapis.com/maps/api/geocode/json?address=",
-})
+  baseURL: "https://maps.googleapis.com/maps/api/geocode/json?address="
+});
 
-let apiKey = '&key=AIzaSyBO2Ffcqzt0oT3Agz2_zuH3ZyELdwJAov0'
+let apiKey = "&key=AIzaSyBO2Ffcqzt0oT3Agz2_zuH3ZyELdwJAov0";
 
 export default new Vuex.Store({
   state: {
@@ -33,136 +33,124 @@ export default new Vuex.Store({
     pendingJobs: {},
     activeJobs: [],
     completedJobs: [],
-    markers: [],
+    markers: []
   },
   mutations: {
     setUser(state, user) {
-      state.user = user
+      state.user = user;
     },
     setMap(state, map) {
-      state.map = map
+      state.map = map;
     },
     setJobLocation(state, payload) {
-      console.log(payload)
+      console.log(payload);
       let jobLocation = {
         lat: payload.results[0].geometry.location.lat,
         lng: payload.results[0].geometry.location.lng
-      }
+      };
       state.jobLocation.push(jobLocation);
-      console.log(payload.results[0].geometry.location.lat, payload.results[0].geometry.location.lng)
+      console.log(
+        payload.results[0].geometry.location.lat,
+        payload.results[0].geometry.location.lng
+      );
     },
     isProvider(state) {
-      state.user.provider = true
+      state.user.provider = true;
     },
     setJob(state, job) {
-      console.log(job)
-      state.job = job
+      console.log(job);
+      state.job = job;
     },
     setJobs(state, jobs) {
-      console.log(jobs)
-      state.availableJobs = jobs
+      console.log(jobs);
+      state.availableJobs = jobs;
     },
     setActiveJob(state, job) {
-      state.activeJobs = job
+      state.activeJobs = job;
     },
     setMarkers(state, marker) {
-      state.markers.push(marker)
+      state.markers.push(marker);
     }
   },
   actions: {
     //customer
-    register({
-      commit,
-      dispatch
-    }, newCustomer) {
-      auth.post('register', newCustomer)
-        .then(res => {
-          commit('setUser', res.data)
-          if (!res.data.provider)
-            router.push({
-              name: 'customer'
-            })
-          else
-            router.push({
-              name: 'provider'
-            })
-        })
-    },
-    authenticate({
-      commit,
-      dispatch
-    }) {
-      auth.get('authenticate')
-        .then(res => {
-          commit('setUser', res.data)
-          if (!res.data.provider)
-            router.push({
-              name: 'customer'
-            })
-          else
-            router.push({
-              name: 'provider'
-            })
-        })
-    },
-    login({
-      commit,
-      dispatch
-    }, creds) {
-      auth.post('login', creds)
-        .then(res => {
-          commit('setUser', res.data)
-          if (!res.data.provider)
-            router.push({
-              name: 'customer'
-            })
-          else
-            router.push({
-              name: 'provider'
-            })
-        })
-    },
-    logout({
-      commit,
-      dispatch
-    }) {
-      auth.delete('logout')
-        .then(res => {
-          commit('setUser', {})
+    register({ commit, dispatch }, newCustomer) {
+      auth.post("register", newCustomer).then(res => {
+        commit("setUser", res.data);
+        if (!res.data.provider)
           router.push({
-            name: 'home'
-          })
-        })
+            name: "customer"
+          });
+        else
+          router.push({
+            name: "provider"
+          });
+      });
+    },
+    authenticate({ commit, dispatch }) {
+      auth.get("authenticate").then(res => {
+        commit("setUser", res.data);
+        if (!res.data.provider)
+          router.push({
+            name: "customer"
+          });
+        else
+          router.push({
+            name: "provider"
+          });
+      });
+    },
+    login({ commit, dispatch }, creds) {
+      auth.post("login", creds).then(res => {
+        commit("setUser", res.data);
+        if (!res.data.provider)
+          router.push({
+            name: "customer"
+          });
+        else
+          router.push({
+            name: "provider"
+          });
+      });
+    },
+    logout({ commit, dispatch }) {
+      auth.delete("logout").then(res => {
+        commit("setUser", {});
+        router.push({
+          name: "home"
+        });
+      });
     },
 
     // Map
     createJobGeo({ commit, dispatch }, payload) {
-      apiGeo.get(payload.street + payload.city + payload.state + payload.zip + apiKey)
+      apiGeo
+        .get(
+          payload.street + payload.city + payload.state + payload.zip + apiKey
+        )
         .then(res => {
-          commit("setJobLocation", res.data)
-        })
+          commit("setJobLocation", res.data);
+        });
     },
     postJobOnMap({ commit, dispatch }, job) {
-      commit("setJob", job)
-      console.log('postJob in store.js')
+      commit("setJob", job);
+      console.log("postJob in store.js");
     },
     createJob({ commit, dispatch }, job) {
-      api.post('job', job)
-        .then(res => {
-          commit("setJob", res.data)
-        })
+      api.post("job", job).then(res => {
+        commit("setJob", res.data);
+      });
     },
     getJobs({ commit, dispatch }) {
-      api.get('job')
-        .then(res => {
-          commit('setJobs', res.data)
-        })
+      api.get("job").then(res => {
+        commit("setJobs", res.data);
+      });
     },
     setUserisProvider({ commit }) {
-      commit('isProvider')
+      commit("isProvider");
     },
     addMarker({ commit }, marker) {
-      commit('setMarkers', marker)
+      commit("setMarkers", marker);
     }
   }
-})
+});
