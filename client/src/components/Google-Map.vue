@@ -26,7 +26,7 @@
         return this.$store.state.user;
       },
       markerCoordinates() {
-        return this.$store.state.jobLocations;
+        return this.$store.state.jobLocation;
       },
       job() {
         return this.$store.state.job
@@ -106,6 +106,7 @@
             if (!this.$store.state.user.provider) {
               var postButton = document.getElementById('postButton');
               google.maps.event.addDomListener(postButton, 'click', function () {
+                debugger
                 let jobInfo = {
                   customerEmail: self.user.email,
                   customerName: self.user.name,
@@ -113,6 +114,8 @@
                   street: self.job.street,
                   state: self.job.state,
                   city: self.job.city,
+                  lat: self.jobLocations[0].lat,
+                  lng: self.jobLocations[0].lng,
 
                   customerPhone: self.job.customerPhone
 

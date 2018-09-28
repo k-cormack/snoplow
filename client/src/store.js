@@ -29,8 +29,9 @@ export default new Vuex.Store({
   state: {
     user: {},
     map: {},
-    jobLocations: [],
-    job:{},
+    jobLocation: [],
+    availbleJobs: [],
+    job: {},
     pendingJobs: {},
     activeJobs: [],
     completedJobs: [],
@@ -49,18 +50,18 @@ export default new Vuex.Store({
         lat: payload.results[0].geometry.location.lat,
         lng: payload.results[0].geometry.location.lng
       }
-      state.jobLocations.push(jobLocation)
+      state.jobLocation.push(jobLocation);
       console.log(payload.results[0].geometry.location.lat, payload.results[0].geometry.location.lng)
     },
     isProvider(state) {
       state.user.provider = true
     },
-    setJob(state,job){
+    setJob(state, job) {
       console.log(job)
-      debugger
+    
       state.job = job
     },
-    setActiveJob(state,job){
+    setActiveJob(state, job) {
       state.activeJobs = job
     },
 
@@ -71,41 +72,67 @@ export default new Vuex.Store({
   actions: {
 
     //customer
-    register({ commit, dispatch }, newCustomer) {
+    register({
+      commit,
+      dispatch
+    }, newCustomer) {
       auth.post('register', newCustomer)
         .then(res => {
           commit('setUser', res.data)
           if (!res.data.provider)
-            router.push({ name: 'customer' })
+            router.push({
+              name: 'customer'
+            })
           else
-            router.push({ name: 'provider' })
+            router.push({
+              name: 'provider'
+            })
         })
     },
-    authenticate({ commit, dispatch }) {
+    authenticate({
+      commit,
+      dispatch
+    }) {
       auth.get('authenticate')
         .then(res => {
           commit('setUser', res.data)
           if (!res.data.provider)
-            router.push({ name: 'customer' })
+            router.push({
+              name: 'customer'
+            })
           else
-            router.push({ name: 'provider' })
+            router.push({
+              name: 'provider'
+            })
         })
     },
-    login({ commit, dispatch }, creds) {
+    login({
+      commit,
+      dispatch
+    }, creds) {
       auth.post('login', creds)
         .then(res => {
           commit('setUser', res.data)
           if (!res.data.provider)
-            router.push({ name: 'customer' })
+            router.push({
+              name: 'customer'
+            })
           else
-            router.push({ name: 'provider' })
+            router.push({
+              name: 'provider'
+            })
         })
     },
-    logout({ commit, dispatch }) {
+    logout({
+      commit,
+      dispatch
+    }) {
       auth.delete('logout')
         .then(res => {
           commit('setUser', {})
-          router.push({ name: 'home' })
+          router.push({
+            name: 'home'
+          })
         })
     },
 
@@ -116,38 +143,36 @@ export default new Vuex.Store({
     //   commit('setMap', mapData)
     // },
 
-    createJobGeo({ commit, dispatch }, payload) {      
+    createJobGeo({ commit, dispatch }, payload) {
       apiGeo.get(payload.street + payload.city + payload.state + payload.zip + apiKey)
         .then(res => {
           commit("setJobLocation", res.data)
         })
     },
-    postJobOnMap({commit ,dispatch}, job){      
+    postJobOnMap({ commit, dispatch }, job) {
       commit("setJob", job)
       console.log('postJob in store.js')
     },
-    createJob({commit, dispatch},job){
+    createJob({ commit, dispatch }, job) {
       api.post('job', job)
-      .then(res=>{
-        commit("setJob",res.data)
+        .then(res => {
+          commit("setJob", res.data)
         })
     },
-    getJobs({commit, dispatch}){
+    getJobs({ commit, dispatch }) {
       api.get('job')
-      .then(res => {
-        commit('setJob', res.data)
-      })
+        .then(res => {
+          commit('setJob', res.data)
+        })
     },
     setUserisProvider({ commit }) {
       commit('isProvider')
     },
-    addMarker({commit}, marker) {
+    addMarker({
+      commit
+    }, marker) {
       commit('setMarkers', marker)
     }
-    
+
   }
 })
-
-
-
-
