@@ -59,7 +59,7 @@ export default new Vuex.Store({
     setJob(state, job) {
       console.log(job)
     
-      state.job = (job)
+      state.job = job
     },
     setJobs(state, jobs) {
       console.log(jobs)

@@ -114,8 +114,8 @@
                   street: self.job.street,
                   state: self.job.state,
                   city: self.job.city,
-                  lat: self.jobLocations[0].lat,
-                  lng: self.jobLocations[0].lng,
+                  lat: self.markerCoordinates[0].lat,
+                  lng: self.markerCoordinates[0].lng,
 
                   customerPhone: self.job.customerPhone
 
