@@ -25,18 +25,14 @@
             }
         },
         computed: {
-
         },
         mounted() {
-
         },
         methods: {
-
         },
         props: ["jobData"],
 
         components: {
-
         },
     };
 
