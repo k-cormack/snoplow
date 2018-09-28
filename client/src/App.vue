@@ -1,15 +1,10 @@
 <template>
   <div class="flex container-fluid" id="app">
-
     <router-view />
-
   </div>
 </template>
 
 <script>
-
-
-
 </script>
 
 <style>
@@ -23,7 +18,6 @@
   }
 
   #app {
-    /* color: white; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;    

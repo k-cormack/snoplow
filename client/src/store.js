@@ -21,8 +21,6 @@ let apiGeo = Axios.create({
   baseURL: "https://maps.googleapis.com/maps/api/geocode/json?address=",
 })
 
-
-// Chace's API key for geocode DO NOT reuse
 let apiKey = '&key=AIzaSyBO2Ffcqzt0oT3Agz2_zuH3ZyELdwJAov0'
 
 export default new Vuex.Store({
@@ -58,24 +56,20 @@ export default new Vuex.Store({
     },
     setJob(state, job) {
       console.log(job)
-    
       state.job = job
     },
     setJobs(state, jobs) {
       console.log(jobs)
-    
       state.availableJobs = jobs
     },
     setActiveJob(state, job) {
       state.activeJobs = job
     },
-
     setMarkers(state, marker) {
       state.markers.push(marker)
     }
   },
   actions: {
-
     //customer
     register({
       commit,
@@ -142,12 +136,6 @@ export default new Vuex.Store({
     },
 
     // Map
-
-
-    // addMapData({ commit }, mapData) {
-    //   commit('setMap', mapData)
-    // },
-
     createJobGeo({ commit, dispatch }, payload) {
       apiGeo.get(payload.street + payload.city + payload.state + payload.zip + apiKey)
         .then(res => {
@@ -176,6 +164,5 @@ export default new Vuex.Store({
     addMarker({ commit }, marker) {
       commit('setMarkers', marker)
     }
-
   }
 })
