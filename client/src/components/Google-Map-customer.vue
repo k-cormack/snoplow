@@ -12,7 +12,7 @@
 
 <script>
   export default {
-    name: "googleMap",
+    name: "googleMapCustomer",
     props: ["mapData"],
     data: function () {
       return {

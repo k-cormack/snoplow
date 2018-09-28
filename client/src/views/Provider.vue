@@ -16,7 +16,7 @@
 
 <script>
 
-    import googleMaps from "@/components/Google-Map.vue"
+    import googleMaps from "@/components/Google-Map-Provider.vue"
     import Navbar from '@/components/Navbar.vue'
     import findJob from '@/components/findJob.vue'
 

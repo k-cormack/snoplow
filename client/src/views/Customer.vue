@@ -34,16 +34,14 @@
 
 <script>
 
-    import googleMaps from "@/components/Google-Map.vue"
+    import googleMaps from "@/components/Google-Map-customer.vue"
     import Navbar from '@/components/Navbar.vue';
-    import findJob from '@/components/findJob.vue'
     import createJob from '@/components/createJob.vue'
     export default {
         name: "customer",
         components: {
             googleMaps,
             Navbar,
-            findJob,
             createJob
         },
     }      

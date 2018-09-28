@@ -30,7 +30,7 @@ export default new Vuex.Store({
     user: {},
     map: {},
     jobLocation: [],
-    availbleJobs: [],
+    availableJobs: [],
     job: {},
     pendingJobs: {},
     activeJobs: [],
@@ -59,7 +59,12 @@ export default new Vuex.Store({
     setJob(state, job) {
       console.log(job)
     
-      state.job = job
+      state.job = (job)
+    },
+    setJobs(state, jobs) {
+      console.log(jobs)
+    
+      state.availableJobs.push(jobs)
     },
     setActiveJob(state, job) {
       state.activeJobs = job
@@ -162,7 +167,7 @@ export default new Vuex.Store({
     getJobs({ commit, dispatch }) {
       api.get('job')
         .then(res => {
-          commit('setJob', res.data)
+          commit('setJobs', res.data)
         })
     },
     setUserisProvider({ commit }) {
