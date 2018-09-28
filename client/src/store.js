@@ -64,7 +64,7 @@ export default new Vuex.Store({
     setJobs(state, jobs) {
       console.log(jobs)
     
-      state.availableJobs.push(jobs)
+      state.availableJobs = jobs
     },
     setActiveJob(state, job) {
       state.activeJobs = job
@@ -173,9 +173,7 @@ export default new Vuex.Store({
     setUserisProvider({ commit }) {
       commit('isProvider')
     },
-    addMarker({
-      commit
-    }, marker) {
+    addMarker({ commit }, marker) {
       commit('setMarkers', marker)
     }
 

@@ -26,6 +26,7 @@
         return this.$store.state.user;
       },
       markerCoordinates() {
+        debugger
         return this.$store.state.jobLocation;
       },
       job() {
@@ -59,6 +60,7 @@
         })
       },
       drawMarkers() {
+        debugger
         this.markerCoordinates.forEach((coord, index) => {
           if (!this.$store.state.user.provider) {
 

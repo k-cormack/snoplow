@@ -27,10 +27,10 @@
             Navbar,
             findJob
         },
+        mounted() {
+            this.$store.dispatch('getJobs')
+        },
 
-    mounted: function(){
-        this.$store.dispatch('getJobs')
-    }
     }
 </script>
 
