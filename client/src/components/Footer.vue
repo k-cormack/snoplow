@@ -4,7 +4,6 @@
                 <button class="customer-account" @click="custInfo">Account</button>
                 <button class="post-job" @click="postJob">Post Job</button>
                 <button class="logout" @click="logout">Log Out</button>
-                <!-- <router-link/> -->
             </div>
         </div>
     </template>
@@ -15,19 +14,13 @@
         export default {
             name: "customer-navbar",
             data: function () {
-                return {
-    
+                return {    
                 };
             },
-    
             computed: {
-    
             },
-    
             mounted() {
-    
             },
-    
             methods: {
                 logout() {
                 this.$store.dispatch('logoutCustomer')
@@ -40,7 +33,7 @@
                     this.$router.push({name: 'customerInfo'})
                 }
             },
-    
+            
             props: [],
     
             components: {
