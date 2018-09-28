@@ -1,16 +1,15 @@
 <template>
-        <div class="col-12">
-            <div class="customer-navbar row">
-                <button class="customer-account" @click="custInfo">Account</button>
-                <button class="post-job" @click="postJob">Post Job</button>
-                <button class="logout" @click="logout">Log Out</button>
-            </div>
+    <div class="col-12">
+        <div class="customer-navbar row">
+            <button class="customer-account" @click="custInfo">Account</button>
+            <button class="post-job" @click="postJob">Post Job</button>
+            <button class="logout" @click="logout">Log Out</button>
         </div>
-    </template>
+    </div>
+</template>
     
-    <script>
-        import Home from '@/views/Home';
-    
+<script>
+    import Home from '@/views/Home';    
         export default {
             name: "customer-navbar",
             data: function () {
@@ -35,21 +34,19 @@
             },
             
             props: [],
-    
             components: {
                 Home,
             },
         }
-    </script>
+</script>
     
-    <style scoped>
-        .customer-navbar {
-            background-color: moccasin;
-            padding-top: 15px;
-            padding-bottom: 15px
-        }
-    
-        .row {
-            justify-content: space-around
-        }
-    </style>
+<style scoped>
+    .customer-navbar {
+        background-color: moccasin;
+        padding-top: 15px;
+        padding-bottom: 15px
+    }
+    .row {
+        justify-content: space-around
+    }
+</style>
