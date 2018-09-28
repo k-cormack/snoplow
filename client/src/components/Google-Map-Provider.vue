@@ -61,7 +61,6 @@
                 })
             },
             drawMarkers() {
-                debugger
                 this.markerCoordinates.forEach((coord, index) => {
                     if (!this.$store.state.user.provider) {
 
@@ -139,7 +138,7 @@
                     google.maps.event.addListener(this.map, 'click', function () {
                         marker.infowindow.close();
                     });
-                    
+
                     marker.setMap(this.map);
                 });
             },

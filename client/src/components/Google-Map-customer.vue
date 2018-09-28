@@ -60,7 +60,6 @@
         })
       },
       drawMarkers() {
-        debugger
         this.markerCoordinates.forEach((coord, index) => {
           if (!this.$store.state.user.provider) {
 
@@ -108,7 +107,6 @@
             if (!this.$store.state.user.provider) {
               var postButton = document.getElementById('postButton');
               google.maps.event.addDomListener(postButton, 'click', function () {
-                debugger
                 let jobInfo = {
                   customerEmail: self.user.email,
                   customerName: self.user.name,
