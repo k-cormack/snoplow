@@ -33,12 +33,8 @@ export default new Vuex.Store({
     pendingJobs: {},
     activeJobs: [],
     completedJobs: [],
-<<<<<<< HEAD
     markers: [],
     activeMarker: {},
-=======
-    markers: []
->>>>>>> 0f24cedd9b6a4ed281f70d2b0a80ff6ab6218b42
   },
   mutations: {
     setUser(state, user) {
@@ -48,12 +44,8 @@ export default new Vuex.Store({
       state.map = map;
     },
     setJobLocation(state, payload) {
-<<<<<<< HEAD
       state.jobLocation = []
       console.log(payload)
-=======
-      console.log(payload);
->>>>>>> 0f24cedd9b6a4ed281f70d2b0a80ff6ab6218b42
       let jobLocation = {
         lat: payload.results[0].geometry.location.lat,
         lng: payload.results[0].geometry.location.lng
@@ -79,7 +71,6 @@ export default new Vuex.Store({
       state.activeJobs = job;
     },
     setMarkers(state, marker) {
-<<<<<<< HEAD
       state.markers = [];
       state.markers.push(marker)
     },
@@ -89,10 +80,6 @@ export default new Vuex.Store({
     // setActiveMarker(state, marker) {
     //   state.activeMarker = marker
     // },
-=======
-      state.markers.push(marker);
-    }
->>>>>>> 0f24cedd9b6a4ed281f70d2b0a80ff6ab6218b42
   },
   actions: {
     //customer
@@ -172,7 +159,6 @@ export default new Vuex.Store({
       commit("isProvider");
     },
     addMarker({ commit }, marker) {
-<<<<<<< HEAD
       commit('setMarkers', marker)
     },
     clearMarkers({ commit }) {
@@ -183,9 +169,5 @@ export default new Vuex.Store({
     // },
 
 
-=======
-      commit("setMarkers", marker);
-    }
->>>>>>> 0f24cedd9b6a4ed281f70d2b0a80ff6ab6218b42
   }
 });
