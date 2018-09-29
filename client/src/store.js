@@ -36,6 +36,7 @@ export default new Vuex.Store({
     activeJobs: [],
     completedJobs: [],
     markers: [],
+    activeMarker: {},
   },
   mutations: {
     setUser(state, user) {
@@ -45,6 +46,7 @@ export default new Vuex.Store({
       state.map = map
     },
     setJobLocation(state, payload) {
+      state.jobLocation = []
       console.log(payload)
       let jobLocation = {
         lat: payload.results[0].geometry.location.lat,
@@ -71,8 +73,15 @@ export default new Vuex.Store({
     },
 
     setMarkers(state, marker) {
+      state.markers = [];
       state.markers.push(marker)
-    }
+    },
+    clearMarkers(state) {
+      state.markers = []
+    },
+    // setActiveMarker(state, marker) {
+    //   state.activeMarker = marker
+    // },
   },
   actions: {
 
@@ -175,7 +184,14 @@ export default new Vuex.Store({
     },
     addMarker({ commit }, marker) {
       commit('setMarkers', marker)
-    }
+    },
+    clearMarkers({ commit }) {
+      commit('clearMarkers')
+    },
+    // setActiveMarker({ commit }, marker) {
+    //   commit('setActiveMarker', marker)
+    // },
+
 
   }
 })

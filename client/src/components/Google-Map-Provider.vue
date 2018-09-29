@@ -20,7 +20,7 @@
                 map: {}
             };
         },
-       
+
         computed: {
             user() {
                 return this.$store.state.user;
@@ -77,9 +77,12 @@
                     } else {
                         var content =
                             '<div class="iw-container">' +
-                            '<div>Job info here</div>' +
-                            '<button id="bidButton" class="ui-btn ui-mini" type="submit">BID on JOB</button>' +
-                            '</div>';
+                            '<div>' +
+                            this.$store.state.user.name +
+                            '</div>'
+                        '<div>Job info here</div>' +
+                        '<button id="bidButton" class="ui-btn ui-mini" type="submit">Accept Job</button>' +
+                        '</div>';
                     }
 
                     var locationInfowindow = new google.maps.InfoWindow({
@@ -108,7 +111,6 @@
                         if (!this.$store.state.user.provider) {
                             var postButton = document.getElementById('postButton');
                             google.maps.event.addDomListener(postButton, 'click', function () {
-                                debugger
                                 let jobInfo = {
                                     customerEmail: self.user.email,
                                     customerName: self.user.name,
@@ -129,7 +131,7 @@
                         } else {
                             var bidButton = document.getElementById('bidButton');
                             google.maps.event.addDomListener(bidButton, 'click', function () {
-                                console.log("Job Bid Submitted")
+                                console.log("Job Accepted")
                                 self.$store.dispatch('bidJob', marker)
                             });
                         }

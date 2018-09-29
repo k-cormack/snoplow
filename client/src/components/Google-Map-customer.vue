@@ -26,7 +26,6 @@
         return this.$store.state.user;
       },
       markerCoordinates() {
-        debugger
         return this.$store.state.jobLocation;
       },
       job() {
@@ -34,7 +33,7 @@
       }
     },
     mounted: function () {
-      const element = document.getElementById("googleMap");
+        const element = document.getElementById("googleMap");
       var options = {
         zoom: 15,
         center: new google.maps.LatLng(43.615, -116.2023),
@@ -43,16 +42,36 @@
 
       this.map = new google.maps.Map(element, options);
 
+      // this.drawMap();
+
 
       this.drawMarkers()
     },
     watch: {
       markerCoordinates: function (newVal) {
+        // this.clearMap();
         this.drawMarkers()
 
       }
     },
     methods: {
+      clearMarkers(){
+        let markersArray = this.$store.state.markers;
+        for (let i = 0; i < markersArray.length; i++) {
+          markersArray[i].setMap(null);          
+        }
+        markersArray.length = 0;
+      },
+      // drawMap() {
+      //   const element = document.getElementById("googleMap");
+      // var options = {
+      //   zoom: 15,
+      //   center: new google.maps.LatLng(43.615, -116.2023),
+      //   mapTypeId: google.maps.MapTypeId.ROADMAP,
+      // };
+
+      // this.map = new google.maps.Map(element, options);
+      // },
 
       closeAll() {
         this.$store.state.markers.forEach(m => {
@@ -62,7 +81,6 @@
       drawMarkers() {
         this.markerCoordinates.forEach((coord, index) => {
           if (!this.$store.state.user.provider) {
-
             var content =
               '<div class="iw-container">' +
               '<div>' +
@@ -79,7 +97,8 @@
               '<div>Job info here</div>' +
               '<button id="bidButton" class="ui-btn ui-mini" type="submit">BID on JOB</button>' +
               '</div>';
-          }
+          };
+
 
           var locationInfowindow = new google.maps.InfoWindow({
             content: content,
@@ -94,10 +113,8 @@
             // map: this.map
           });
           //or this outside:
-
+          this.clearMarkers();
           this.$store.dispatch('addMarker', marker);
-
-
 
           marker.addListener('click', (event) => {
 
@@ -137,6 +154,11 @@
             marker.infowindow.close();
           });
 
+          // let x = this.$store.state.markers
+          // for (let i = 0; i < x.length; i++) {
+          //   x[i].setMap(this.map)
+            
+          // };
           marker.setMap(this.map);
         });
       },
