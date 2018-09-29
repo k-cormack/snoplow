@@ -6,9 +6,6 @@
             <input type="text" placeholder="Zip" v-model="findJob.zip">
             <button type="submit">Find Jobs</button>
         </form>
-        <!-- <h3>{{jobData.date}}</h3>
-        <h3>{{jobData.address}}</h3> -->
-
     </div>
 </template>
 
@@ -25,14 +22,18 @@
             }
         },
         computed: {
+
         },
         mounted() {
+
         },
         methods: {
+
         },
         props: ["jobData"],
 
         components: {
+
         },
     };
 

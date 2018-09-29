@@ -40,7 +40,6 @@ export default new Router({
     path: '/userInfo',
     name: 'userInfo',
     component: userInfo
-    },
-    
+    }, 
   ]
 })
