@@ -2,9 +2,9 @@ var express = require('express')
 var bp = require('body-parser')
 var server = express()
 var cors = require('cors')
-var port = 3000
+var port = process.env.PORT || 3000
 
-var whitelist = ['http://localhost:8080'];
+var whitelist = ['http://localhost:8080', 'http://cormack-snoplow.herokuapp.com'];
 var corsOptions = {
   origin: function (origin, callback) {
     var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
@@ -12,6 +12,7 @@ var corsOptions = {
   },
   credentials: true
 };
+server.use(express.static(__dirname + '/../client/dist'))
 server.use(cors(corsOptions))
 
 //Fire up database connection
