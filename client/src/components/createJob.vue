@@ -15,7 +15,7 @@
           <input type="text" placeholder="Zip Code" v-model="newJob.zip">
         </div>        
           <label for="cb" class="pure-checkbox">
-            <input id="cb" type="checkbox"> I've read the terms and conditions
+            <input id="cb" type="checkbox" required> I've read the terms and conditions
           </label>
           <button type="submit" class="pure-button pure-button-primary">Verify Plow Location</button>
         
