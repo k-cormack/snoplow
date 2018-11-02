@@ -168,6 +168,11 @@ export default new Vuex.Store({
     clearMarkers({ commit }) {
       commit('clearMarkers')
     },
+    home({ dispatch }) {
+      router.push({
+        name: "home"
+      });
+    }
     // setActiveMarker({ commit }, marker) {
     //   commit('setActiveMarker', marker)
     // },

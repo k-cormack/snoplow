@@ -14,10 +14,10 @@
     <div class="" v-else>
       <form @submit.prevent="register">
         <div>
-          <input type="name" v-model="newUser.name" placeholder=" Name">
-          <input type="email" v-model="newUser.email" placeholder=" E-mail Address">
-          <input type="tel" minlength="10" v-model="newUser.phone" placeholder=" Phone">
-          <input minlength="6" type="password" v-model="newUser.password" placeholder=" Password">
+          <input type="name" v-model="newUser.name" placeholder=" Name" required>
+          <input type="email" v-model="newUser.email" placeholder=" E-mail Address" required>
+          <input type="tel" minlength="10" v-model="newUser.phone" placeholder=" Phone" required>
+          <input minlength="6" type="password" v-model="newUser.password" placeholder=" Password" required>
         </div>
         <div>
           <button type="submit">Create Account</button>
@@ -27,6 +27,9 @@
     <div @click="loginForm = !loginForm">
       <p v-if="loginForm">No Account Yet? Click <span>HERE</span> to Register Now!</p>
       <p v-else>Already a Member? Click <span>HERE</span> to Login Now!</p>
+    </div>
+    <div>
+      <button id="home" @click='home'>HOME</button>
     </div>
   </div>
 </template>
@@ -59,6 +62,9 @@
       },
       login() {
         this.$store.dispatch('login', this.creds);
+      },
+      home() {
+        this.$store.dispatch('home');
       }
     },
     computed: {
@@ -91,6 +97,13 @@
 
   button {
     background-color: green;
+    color: white;
+    border-radius: 10px;
+    margin-top: 5px
+  }
+
+  #home {
+    background-color: blue;
     color: white;
     border-radius: 10px;
     margin-top: 5px
