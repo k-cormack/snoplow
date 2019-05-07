@@ -2,14 +2,14 @@ let router = require('express').Router()
 let Customer = require('../models/customer')
 
 router.get('/',(req,res,next)=>{
-Customer.find({customerId: req.session.uid})
-.then (data=>{
-    res.send(data)
-})
-.catch(err=>{
-console.log(err)
-next()
-})
+    Customer.find({customerId: req.session.uid})
+    .then (data=>{
+        res.send(data)
+    })
+    .catch(err=>{
+        console.log(err)
+        next()
+    })
 })
 router.post('/',(req, res, next)=>{
     //VALIDATE PASSWORD LENGTH
