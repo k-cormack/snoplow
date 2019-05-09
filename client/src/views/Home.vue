@@ -27,7 +27,7 @@
     </div>
     <div class="row">
       <div class="col-12" id="about">Welcome to SnoPlow! Your personal snowplow service! Here at SnoPlow we
-        understand the struggle the long winters can take on someone.
+        understand the the time and effort needed to keep your driveway clear in the winter.
         We are here to make your life easier! It's simple, all you have to do is sign up as a customer, confirm a date
         and time and one of our trusted providers will accept
         your offer and come remove the ice and snow from your driveways and walkways! You can also become a provider
